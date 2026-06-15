@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Art History Field Guide</title>
+  <meta name="description" content="A substantial, interactive beginner-friendly guide to art history and art appreciation." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="site-shell">
+    <header class="hero" id="top">
+      <nav class="topbar">
+        <a class="brand" href="#top">Art History Field Guide</a>
+        <div class="topbar-links">
+          <a href="#timeline">Timeline</a>
+          <a href="#movements">Movements</a>
+          <a href="#look">How to Look</a>
+          <a href="#resources">Resources</a>
+        </div>
+      </nav>
+
+      <div class="hero-copy">
+        <p class="eyebrow">A substantial quick guide for curious beginners</p>
+        <h1>Learn the shape of art history without drowning in it.</h1>
+        <p class="lede">
+          Start with the big map, then follow the threads you actually care about: the drama of Caravaggio,
+          the humanity of Rembrandt, the reinvention of Picasso, and the visual language that connects them.
+        </p>
+
+        <div class="hero-actions">
+          <a class="button primary" href="#start-here">Start here</a>
+          <a class="button secondary" href="#pathways">Find my path</a>
+        </div>
+
+        <div class="hero-highlights">
+          <div class="highlight-card">
+            <span class="highlight-kicker">Best for</span>
+            <strong>Beginners who want a usable mental map</strong>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-kicker">Includes</span>
+            <strong>Timeline, key movements, artist paths, glossary, and smart links</strong>
+          </div>
+          <div class="highlight-card">
+            <span class="highlight-kicker">Use it for</span>
+            <strong>Museum visits, self-study, and better conversations about art</strong>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="panel intro-panel" id="start-here">
+        <div class="section-heading">
+          <p class="eyebrow">Start here</p>
+          <h2>The fastest way to understand art history</h2>
+        </div>
+        <div class="two-col">
+          <div>
+            <p>
+              Art history is the story of how people have used images, objects, and buildings to express religion,
+              power, beauty, emotion, identity, politics, and new ways of seeing. You do <em>not</em> need to know everything.
+              You need a map.
+            </p>
+            <p>
+              The simplest map for Western art runs like this:
+              <strong>Ancient → Medieval → Renaissance → Baroque → 18th century → Romanticism → Realism → Impressionism → Post-Impressionism → Modernism → Contemporary.</strong>
+            </p>
+          </div>
+          <div class="note-card warm">
+            <h3>The five things to ask of any artwork</h3>
+            <ol>
+              <li><strong>Subject:</strong> what is shown?</li>
+              <li><strong>Style:</strong> how is it shown?</li>
+              <li><strong>Technique:</strong> what materials or methods matter?</li>
+              <li><strong>Context:</strong> who made it, when, and for whom?</li>
+              <li><strong>Meaning:</strong> what is it trying to do or say?</li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" id="timeline">
+        <div class="section-heading with-controls">
+          <div>
+            <p class="eyebrow">Timeline explorer</p>
+            <h2>Move through the major periods</h2>
+            <p>Click any period to see what matters, what to look for, and which artists anchor it.</p>
+          </div>
+          <div class="timeline-controls" role="tablist" aria-label="Art history periods">
+            <button class="timeline-pill active" data-era="ancient">Ancient</button>
+            <button class="timeline-pill" data-era="medieval">Medieval</button>
+            <button class="timeline-pill" data-era="renaissance">Renaissance</button>
+            <button class="timeline-pill" data-era="baroque">Baroque</button>
+            <button class="timeline-pill" data-era="eighteenth">18th century</button>
+            <button class="timeline-pill" data-era="romanticism">Romanticism</button>
+            <button class="timeline-pill" data-era="realism">Realism</button>
+            <button class="timeline-pill" data-era="impressionism">Impressionism</button>
+            <button class="timeline-pill" data-era="postimpressionism">Post-Impressionism</button>
+            <button class="timeline-pill" data-era="modernism">Modernism</button>
+            <button class="timeline-pill" data-era="contemporary">Contemporary</button>
+          </div>
+        </div>
+
+        <article class="era-card" id="era-card" aria-live="polite">
+          <div class="era-meta">
+            <span id="era-range" class="era-range"></span>
+            <span id="era-places" class="era-places"></span>
+          </div>
+          <h3 id="era-title"></h3>
+          <p id="era-summary" class="era-summary"></p>
+          <div class="era-grid">
+            <div>
+              <h4>What matters</h4>
+              <ul id="era-matters"></ul>
+            </div>
+            <div>
+              <h4>Look for</h4>
+              <ul id="era-lookfor"></ul>
+            </div>
+            <div>
+              <h4>Anchor artists / makers</h4>
+              <ul id="era-artists"></ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="panel" id="pathways">
+        <div class="section-heading">
+          <p class="eyebrow">Personal pathways</p>
+          <h2>Start from the artists you already like</h2>
+        </div>
+        <div class="path-grid">
+          <article class="path-card active" data-path="caravaggio">
+            <h3>If you like Caravaggio</h3>
+            <p>Follow light, violence, religious drama, realism, and the emotional force of the Baroque.</p>
+          </article>
+          <article class="path-card" data-path="rembrandt">
+            <h3>If you like Rembrandt</h3>
+            <p>Follow Dutch Golden Age painting, portraiture, printmaking, and psychological depth.</p>
+          </article>
+          <article class="path-card" data-path="picasso">
+            <h3>If you like Picasso</h3>
+            <p>Follow Cézanne, Cubism, modernism, and the long break from strict realism.</p>
+          </article>
+        </div>
+        <div class="path-detail" id="path-detail"></div>
+      </section>
+
+      <section class="panel" id="movements">
+        <div class="section-heading">
+          <p class="eyebrow">Cheat sheet</p>
+          <h2>The movements most worth knowing first</h2>
+        </div>
+        <div class="movement-grid">
+          <article class="movement-card">
+            <h3>Renaissance</h3>
+            <p><strong>Keywords:</strong> balance, perspective, anatomy, humanism, ideal beauty.</p>
+            <p><strong>Big question:</strong> how clearly and harmoniously can art organize the visible world?</p>
+          </article>
+          <article class="movement-card">
+            <h3>Baroque</h3>
+            <p><strong>Keywords:</strong> drama, movement, light, intensity, theatricality.</p>
+            <p><strong>Big question:</strong> how can art move, persuade, and overwhelm the viewer?</p>
+          </article>
+          <article class="movement-card">
+            <h3>Dutch Golden Age</h3>
+            <p><strong>Keywords:</strong> interiors, portraits, commerce, realism, domestic life.</p>
+            <p><strong>Big question:</strong> what does a prosperous society choose to look at?</p>
+          </article>
+          <article class="movement-card">
+            <h3>Romanticism</h3>
+            <p><strong>Keywords:</strong> emotion, nature, terror, imagination, the sublime.</p>
+            <p><strong>Big question:</strong> what happens when feeling outruns order?</p>
+          </article>
+          <article class="movement-card">
+            <h3>Impressionism</h3>
+            <p><strong>Keywords:</strong> atmosphere, fleeting light, modern life, brushwork.</p>
+            <p><strong>Big question:</strong> how do we paint a moment instead of a permanent object?</p>
+          </article>
+          <article class="movement-card">
+            <h3>Modernism</h3>
+            <p><strong>Keywords:</strong> fragmentation, abstraction, experiment, multiple viewpoints.</p>
+            <p><strong>Big question:</strong> must art imitate appearances at all?</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel compare-panel" id="compare">
+        <div class="section-heading">
+          <p class="eyebrow">Quick comparisons</p>
+          <h2>Useful pairings that make styles click</h2>
+        </div>
+        <div class="compare-grid">
+          <article class="compare-card">
+            <h3>Leonardo vs Caravaggio</h3>
+            <p><strong>Leonardo:</strong> subtle, balanced, exploratory, ideal.</p>
+            <p><strong>Caravaggio:</strong> abrupt, embodied, shadowy, urgent.</p>
+          </article>
+          <article class="compare-card">
+            <h3>Rembrandt vs Vermeer</h3>
+            <p><strong>Rembrandt:</strong> inner life, rougher emotion, deep humanity.</p>
+            <p><strong>Vermeer:</strong> stillness, luminous quiet, domestic precision.</p>
+          </article>
+          <article class="compare-card">
+            <h3>Cézanne vs Picasso</h3>
+            <p><strong>Cézanne:</strong> structure beneath appearances.</p>
+            <p><strong>Picasso:</strong> structure exploded and reassembled.</p>
+          </article>
+          <article class="compare-card">
+            <h3>Michelangelo vs Bernini</h3>
+            <p><strong>Michelangelo:</strong> heroic force, monumental form.</p>
+            <p><strong>Bernini:</strong> movement, theater, Baroque energy.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel" id="look">
+        <div class="section-heading">
+          <p class="eyebrow">Art appreciation</p>
+          <h2>How to look at a painting without feeling underqualified</h2>
+        </div>
+        <div class="look-grid">
+          <article class="look-step">
+            <span>1</span>
+            <h3>First impression</h3>
+            <p>What hits you first: light, color, a face, gesture, scale, violence, serenity?</p>
+          </article>
+          <article class="look-step">
+            <span>2</span>
+            <h3>Subject</h3>
+            <p>What is actually happening? Sacred scene, portrait, mythology, domestic moment, still life?</p>
+          </article>
+          <article class="look-step">
+            <span>3</span>
+            <h3>Mood</h3>
+            <p>Does it feel solemn, ecstatic, violent, intimate, elegant, playful, melancholy?</p>
+          </article>
+          <article class="look-step">
+            <span>4</span>
+            <h3>Technique</h3>
+            <p>Look for brushwork, perspective, texture, anatomy, spatial depth, and treatment of light.</p>
+          </article>
+          <article class="look-step">
+            <span>5</span>
+            <h3>Context</h3>
+            <p>Who paid for it? For a church, court, merchant, collector, museum, manifesto, or market?</p>
+          </article>
+          <article class="look-step">
+            <span>6</span>
+            <h3>Why this style?</h3>
+            <p>The best question: why did the artist choose this visual language for this subject?</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="panel glossary-panel" id="glossary">
+        <div class="section-heading">
+          <p class="eyebrow">Glossary</p>
+          <h2>Small set of terms that unlock a lot</h2>
+        </div>
+        <div class="glossary-search-wrap">
+          <label for="glossary-search">Search terms</label>
+          <input id="glossary-search" type="search" placeholder="Try: chiaroscuro, humanism, abstraction..." />
+        </div>
+        <div class="glossary-list" id="glossary-list"></div>
+      </section>
+
+      <section class="panel quiz-panel" id="quiz">
+        <div class="section-heading">
+          <p class="eyebrow">Quick self-test</p>
+          <h2>Check whether the map is sticking</h2>
+        </div>
+        <div class="quiz-card">
+          <p id="quiz-question"></p>
+          <div id="quiz-options" class="quiz-options"></div>
+          <p id="quiz-feedback" class="quiz-feedback" aria-live="polite"></p>
+          <button id="next-question" class="button secondary">Next question</button>
+        </div>
+      </section>
+
+      <section class="panel resources-panel" id="resources">
+        <div class="section-heading">
+          <p class="eyebrow">Best links</p>
+          <h2>Resources worth bookmarking</h2>
+          <p>These are high-quality places to deepen study, browse works, and check terminology.</p>
+        </div>
+        <div class="resource-grid">
+          <a class="resource-card" href="https://www.khanacademy.org/humanities/art-history" target="_blank" rel="noreferrer">
+            <h3>Khan Academy Art History</h3>
+            <p>Excellent structured overview by period, movement, and region.</p>
+          </a>
+          <a class="resource-card" href="https://www.nationalgallery.org.uk/paintings/learn-about-art" target="_blank" rel="noreferrer">
+            <h3>National Gallery: Learn About Art</h3>
+            <p>Approachable essays and technique-focused interpretation.</p>
+          </a>
+          <a class="resource-card" href="https://www.tate.org.uk/art/art-terms" target="_blank" rel="noreferrer">
+            <h3>Tate Art Terms</h3>
+            <p>Fast glossary lookups when you hit unfamiliar terminology.</p>
+          </a>
+          <a class="resource-card" href="https://www.rijksmuseum.nl/en/stories" target="_blank" rel="noreferrer">
+            <h3>Rijksmuseum Stories</h3>
+            <p>Especially strong for Dutch Golden Age art and visual storytelling.</p>
+          </a>
+          <a class="resource-card" href="https://www.uffizi.it/en/online-exhibitions" target="_blank" rel="noreferrer">
+            <h3>Uffizi Online Exhibitions</h3>
+            <p>Great entry into Renaissance and Italian painting context.</p>
+          </a>
+          <a class="resource-card" href="https://www.louvre.fr/en/online-tours" target="_blank" rel="noreferrer">
+            <h3>Louvre Online Tours</h3>
+            <p>Broad canonical context and visual breadth across periods.</p>
+          </a>
+          <a class="resource-card" href="https://www.wikiart.org/" target="_blank" rel="noreferrer">
+            <h3>WikiArt</h3>
+            <p>Simple artist and movement browsing with lots of images.</p>
+          </a>
+          <a class="resource-card" href="https://artsandculture.google.com/" target="_blank" rel="noreferrer">
+            <h3>Google Arts &amp; Culture</h3>
+            <p>Virtual browsing, zooming, themed exploration, and museum discovery.</p>
+          </a>
+        </div>
+      </section>
+
+      <section class="panel closing-panel">
+        <div class="section-heading">
+          <p class="eyebrow">A sensible first route</p>
+          <h2>If you only study one path first, make it this</h2>
+        </div>
+        <div class="route-strip">
+          <div>Renaissance</div>
+          <div>Baroque</div>
+          <div>Dutch Golden Age</div>
+          <div>19th-century transition</div>
+          <div>Picasso &amp; Modernism</div>
+        </div>
+        <p class="route-caption">
+          That route gives you the foundations of realism, the drama of Caravaggio, the humanity of Rembrandt,
+          the break toward modern painting, and the context that makes Picasso feel less mysterious.
+        </p>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>Built as a shareable learning companion for art history and appreciation.</p>
+      <a href="#top">Back to top ↑</a>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
