@@ -350,6 +350,55 @@ const artworks = [
   }
 ];
 
+const artworkPlacements = {
+  'calling-saint-matthew': 'Sits in: Italian Baroque · Rome · religious drama',
+  'mona-lisa': 'Sits in: High Renaissance · Italy/France · portraiture',
+  'night-watch': 'Sits in: Dutch Golden Age · Amsterdam · civic portraiture',
+  'girl-pearl': 'Sits in: Dutch Golden Age · Delft/The Hague world · intimate portrait/tronie',
+  'water-lilies': 'Sits in: late Impressionism → modern bridge · France · landscape/atmosphere',
+  'starry-night': 'Sits in: Post-Impressionism · France/Netherlands context · expressive landscape',
+  'card-players': 'Sits in: Post-Impressionism · France · structure before Cubism',
+  'judith-holofernes': 'Sits in: Baroque · Italy · biblical violence and power',
+  'the-cradle': 'Sits in: Impressionism · France · domestic modern life'
+};
+
+const exampleAtlas = [
+  { title: 'Palette of Narmer', artist: 'Unknown', year: 'c. 3100 BCE', period: 'Ancient', region: 'Egypt', medium: 'Relief / ceremonial object', category: 'foundations', why: 'Early state power and symbolic image-making.', link: 'https://en.wikipedia.org/wiki/Narmer_Palette' },
+  { title: 'Parthenon sculptures', artist: 'Phidias workshop', year: '447–432 BCE', period: 'Classical Greek', region: 'Athens', medium: 'Marble sculpture', category: 'foundations', why: 'Ideal bodies, proportion, and classical balance.', link: 'https://en.wikipedia.org/wiki/Parthenon#Sculpture' },
+  { title: 'Augustus of Prima Porta', artist: 'Unknown Roman sculptor', year: 'early 1st c. CE', period: 'Roman', region: 'Rome', medium: 'Marble sculpture', category: 'religion-power', why: 'Political image-making through idealized portraiture.', link: 'https://en.wikipedia.org/wiki/Augustus_of_Prima_Porta' },
+  { title: 'Hagia Sophia mosaics', artist: 'Byzantine makers', year: '6th–13th c.', period: 'Byzantine / Medieval', region: 'Constantinople', medium: 'Mosaic', category: 'religion-power', why: 'Sacred splendor over naturalistic space.', link: 'https://en.wikipedia.org/wiki/Hagia_Sophia' },
+  { title: 'Book of Kells', artist: 'Insular scribes', year: 'c. 800', period: 'Medieval', region: 'Ireland', medium: 'Illuminated manuscript', category: 'foundations', why: 'Shows how image, text, devotion, and ornament can fuse.', link: 'https://en.wikipedia.org/wiki/Book_of_Kells' },
+  { title: 'Chartres Cathedral', artist: 'Cathedral workshops', year: '12th–13th c.', period: 'Gothic', region: 'France', medium: 'Architecture / stained glass', category: 'religion-power', why: 'A whole visual world, not just a single painting.', link: 'https://en.wikipedia.org/wiki/Chartres_Cathedral' },
+  { title: 'Arena Chapel frescoes', artist: 'Giotto', year: 'c. 1305', period: 'Late Medieval → Proto-Renaissance', region: 'Padua', medium: 'Fresco cycle', category: 'foundations', why: 'A key bridge toward emotional realism and believable space.', link: 'https://en.wikipedia.org/wiki/Scrovegni_Chapel' },
+  { title: 'Arnolfini Portrait', artist: 'Jan van Eyck', year: '1434', period: 'Northern Renaissance', region: 'Bruges', medium: 'Oil painting', category: 'portraiture', why: 'Tiny detail, surfaces, and symbolism at a very high level.', link: 'https://en.wikipedia.org/wiki/Arnolfini_Portrait' },
+  { title: 'The School of Athens', artist: 'Raphael', year: '1509–1511', period: 'High Renaissance', region: 'Rome', medium: 'Fresco', category: 'foundations', why: 'The cleanest possible statement of Renaissance order and intellect.', link: 'https://en.wikipedia.org/wiki/The_School_of_Athens' },
+  { title: 'Sistine Chapel ceiling', artist: 'Michelangelo', year: '1508–1512', period: 'High Renaissance', region: 'Rome', medium: 'Fresco', category: 'religion-power', why: 'Monumental anatomy, drama, and theological ambition.', link: 'https://en.wikipedia.org/wiki/Sistine_Chapel_ceiling' },
+  { title: 'Las Meninas', artist: 'Diego Velázquez', year: '1656', period: 'Baroque', region: 'Spain', medium: 'Oil painting', category: 'portraiture', why: 'A great example of court painting becoming a puzzle about seeing.', link: 'https://en.wikipedia.org/wiki/Las_Meninas' },
+  { title: 'Ecstasy of Saint Teresa', artist: 'Gian Lorenzo Bernini', year: '1647–1652', period: 'Baroque', region: 'Rome', medium: 'Sculpture / chapel installation', category: 'religion-power', why: 'Baroque theater in sculpture and architecture together.', link: 'https://en.wikipedia.org/wiki/Ecstasy_of_Saint_Teresa' },
+  { title: 'The Art of Painting', artist: 'Johannes Vermeer', year: 'c. 1666–1668', period: 'Dutch Golden Age', region: 'Dutch Republic', medium: 'Oil painting', category: 'portraiture', why: 'Quiet interior painting becomes deeply self-aware.', link: 'https://en.wikipedia.org/wiki/The_Art_of_Painting' },
+  { title: 'A Philosopher Giving a Lecture on the Orrery', artist: 'Joseph Wright of Derby', year: 'c. 1766', period: '18th century', region: 'Britain', medium: 'Oil painting', category: 'foundations', why: 'Science, enlightenment, and dramatic light meet.', link: 'https://en.wikipedia.org/wiki/A_Philosopher_Giving_a_Lecture_on_the_Orrery' },
+  { title: 'The Swing', artist: 'Fragonard', year: '1767', period: 'Rococo', region: 'France', medium: 'Oil painting', category: 'portraiture', why: 'A fast way to feel elegance, flirtation, and decorative pleasure.', link: 'https://en.wikipedia.org/wiki/The_Swing_(Fragonard)' },
+  { title: 'Oath of the Horatii', artist: 'Jacques-Louis David', year: '1784', period: 'Neoclassicism', region: 'France', medium: 'Oil painting', category: 'religion-power', why: 'Moral clarity, austerity, and public virtue.', link: 'https://en.wikipedia.org/wiki/Oath_of_the_Horatii' },
+  { title: 'The Nightmare', artist: 'Henry Fuseli', year: '1781', period: 'Romanticism / pre-Romantic', region: 'Britain', medium: 'Oil painting', category: 'modern-break', why: 'Dreams and psychological strangeness crash into polite art.', link: 'https://en.wikipedia.org/wiki/The_Nightmare' },
+  { title: 'Liberty Leading the People', artist: 'Eugène Delacroix', year: '1830', period: 'Romanticism', region: 'France', medium: 'Oil painting', category: 'religion-power', why: 'History painting charged with politics and emotion.', link: 'https://en.wikipedia.org/wiki/Liberty_Leading_the_People' },
+  { title: 'The Hay Wain', artist: 'John Constable', year: '1821', period: 'Romantic landscape', region: 'Britain', medium: 'Oil painting', category: 'foundations', why: 'Landscape becomes emotionally and nationally important.', link: 'https://en.wikipedia.org/wiki/The_Hay_Wain' },
+  { title: 'The Gleaners', artist: 'Jean-François Millet', year: '1857', period: 'Realism', region: 'France', medium: 'Oil painting', category: 'portraiture', why: 'Ordinary labor becomes worthy of serious painting.', link: 'https://en.wikipedia.org/wiki/The_Gleaners' },
+  { title: 'Olympia', artist: 'Édouard Manet', year: '1863', period: 'Realism → modern break', region: 'France', medium: 'Oil painting', category: 'modern-break', why: 'Modern painting gets flatter, harsher, and more confrontational.', link: 'https://en.wikipedia.org/wiki/Olympia_(Manet)' },
+  { title: 'Impression, Sunrise', artist: 'Claude Monet', year: '1872', period: 'Impressionism', region: 'France', medium: 'Oil painting', category: 'modern-break', why: 'The movement gets its name from this turn toward atmosphere.', link: 'https://en.wikipedia.org/wiki/Impression,_Sunrise' },
+  { title: 'The Ballet Class', artist: 'Edgar Degas', year: 'c. 1874', period: 'Impressionism', region: 'France', medium: 'Oil painting', category: 'portraiture', why: 'Modern life, unusual cropping, and observational immediacy.', link: 'https://en.wikipedia.org/wiki/The_Ballet_Class' },
+  { title: 'A Bar at the Folies-Bergère', artist: 'Édouard Manet', year: '1882', period: 'Modern life painting', region: 'France', medium: 'Oil painting', category: 'modern-break', why: 'Urban modernity and weird visual ambiguity in one image.', link: 'https://en.wikipedia.org/wiki/A_Bar_at_the_Folies-Berg%C3%A8re' },
+  { title: 'Where Do We Come From? What Are We? Where Are We Going?', artist: 'Paul Gauguin', year: '1897–1898', period: 'Post-Impressionism', region: 'France/Tahiti context', medium: 'Oil painting', category: 'modern-break', why: 'Symbolism and anti-naturalism push away from plain seeing.', link: 'https://en.wikipedia.org/wiki/Where_Do_We_Come_From%3F_What_Are_We%3F_Where_Are_We_Going%3F' },
+  { title: 'Les Demoiselles d’Avignon', artist: 'Pablo Picasso', year: '1907', period: 'Proto-Cubism / Modernism', region: 'Paris', medium: 'Oil painting', category: 'modern-break', why: 'One of the major fractures in Western painting.', link: 'https://en.wikipedia.org/wiki/Les_Demoiselles_d%27Avignon' },
+  { title: 'Composition VII', artist: 'Wassily Kandinsky', year: '1913', period: 'Abstraction', region: 'Europe', medium: 'Oil painting', category: 'modern-break', why: 'A clear statement that painting need not depict objects at all.', link: 'https://en.wikipedia.org/wiki/Composition_VII' },
+  { title: 'Fountain', artist: 'Marcel Duchamp', year: '1917', period: 'Dada / Conceptual turn', region: 'New York', medium: 'Readymade', category: 'modern-break', why: 'Art history turns from craft alone to ideas and selection.', link: 'https://en.wikipedia.org/wiki/Fountain_(Duchamp)' },
+  { title: 'The Two Fridas', artist: 'Frida Kahlo', year: '1939', period: 'Modernism', region: 'Mexico', medium: 'Oil painting', category: 'women', why: 'Identity, pain, duality, and self-fashioning enter the center of the picture.', link: 'https://en.wikipedia.org/wiki/The_Two_Fridas' },
+  { title: 'Autumn Rhythm (Number 30)', artist: 'Jackson Pollock', year: '1950', period: 'Abstract Expressionism', region: 'United States', medium: 'Enamel on canvas', category: 'modern-break', why: 'Gesture itself becomes the event.', link: 'https://en.wikipedia.org/wiki/Autumn_Rhythm_(Number_30)' },
+  { title: 'Marilyn Diptych', artist: 'Andy Warhol', year: '1962', period: 'Pop Art', region: 'United States', medium: 'Silkscreen', category: 'modern-break', why: 'Mass media and repetition become the subject.', link: 'https://en.wikipedia.org/wiki/Marilyn_Diptych' },
+  { title: 'The Dinner Party', artist: 'Judy Chicago', year: '1974–1979', period: 'Contemporary / feminist art', region: 'United States', medium: 'Installation', category: 'women', why: 'A landmark intervention into whose stories art history remembers.', link: 'https://en.wikipedia.org/wiki/The_Dinner_Party' },
+  { title: 'Untitled Film Stills', artist: 'Cindy Sherman', year: '1977–1980', period: 'Contemporary', region: 'United States', medium: 'Photography', category: 'women', why: 'Identity and image-making become performances in themselves.', link: 'https://en.wikipedia.org/wiki/Untitled_Film_Stills' },
+  { title: 'Maman', artist: 'Louise Bourgeois', year: '1999', period: 'Contemporary', region: 'Global / France-US context', medium: 'Sculpture', category: 'women', why: 'Contemporary art can be monumental, psychological, and symbolic all at once.', link: 'https://en.wikipedia.org/wiki/Maman_(sculpture)' }
+];
+
 const glossary = [
   { term: 'Abstraction', definition: 'Moving away from literal representation of things in the visible world.' },
   { term: 'Chiaroscuro', definition: 'Strong contrast between light and dark, especially to model form and heighten drama.' },
@@ -817,6 +866,7 @@ document.getElementById('next-question').addEventListener('click', () => {
 
 let activeFilter = 'all';
 let selectedArtworkId = 'calling-saint-matthew';
+let activeAtlasFilter = 'all';
 
 function getVisibleArtworks() {
   return activeFilter === 'all'
@@ -824,8 +874,57 @@ function getVisibleArtworks() {
     : artworks.filter(art => art.filter === activeFilter);
 }
 
+function getVisibleAtlasExamples() {
+  return activeAtlasFilter === 'all'
+    ? exampleAtlas
+    : exampleAtlas.filter(item => item.category === activeAtlasFilter);
+}
+
+function renderAtlasSummary() {
+  const visible = getVisibleAtlasExamples();
+  const summary = document.getElementById('atlas-summary-strip');
+  const periods = new Set(visible.map(item => item.period));
+  const regions = new Set(visible.map(item => item.region));
+  summary.innerHTML = `
+    <div class="atlas-summary-card">
+      <strong>${visible.length}</strong>
+      <span>examples in view</span>
+    </div>
+    <div class="atlas-summary-card">
+      <strong>${periods.size}</strong>
+      <span>period labels represented</span>
+    </div>
+    <div class="atlas-summary-card">
+      <strong>${regions.size}</strong>
+      <span>regional contexts represented</span>
+    </div>
+  `;
+}
+
+function renderExampleAtlas() {
+  const visible = getVisibleAtlasExamples();
+  const grid = document.getElementById('example-atlas-grid');
+  renderAtlasSummary();
+  grid.innerHTML = visible.map(item => `
+    <a class="atlas-card" href="${item.link}" target="_blank" rel="noreferrer">
+      <div class="atlas-card-top">
+        <p class="atlas-card-meta">${item.artist} · ${item.year}</p>
+        <h3>${item.title}</h3>
+      </div>
+      <div class="atlas-chip-row">
+        <span>${item.period}</span>
+        <span>${item.region}</span>
+        <span>${item.medium}</span>
+      </div>
+      <p>${item.why}</p>
+      <div class="atlas-sits">Sits in: ${item.period} · ${item.region} · ${item.medium}</div>
+    </a>
+  `).join('');
+}
+
 function renderSpotlight(artwork) {
   const spotlight = document.getElementById('art-spotlight');
+  const placement = artworkPlacements[artwork.id] || `Sits in: ${artwork.period}`;
   spotlight.innerHTML = `
     <div class="art-spotlight-image">
       <img src="${artwork.image}" alt="${artwork.alt}" loading="eager" />
@@ -834,6 +933,7 @@ function renderSpotlight(artwork) {
       <p class="eyebrow">Selected work</p>
       <h3>${artwork.title}</h3>
       <p class="art-meta">${artwork.artist} · ${artwork.year} · ${artwork.period}</p>
+      <p class="art-placement">${placement}</p>
       <p>${artwork.detail}</p>
       <div class="art-tags">${artwork.tags.map(tag => `<span>${tag}</span>`).join('')}</div>
       <div class="spotlight-links">
@@ -858,7 +958,9 @@ function renderGallery() {
       <div class="art-copy">
         <p class="art-meta">${art.artist} · ${art.period}</p>
         <h3>${art.title}</h3>
+        <p class="art-placement">${artworkPlacements[art.id] || `Sits in: ${art.period}`}</p>
         <p>${art.why}</p>
+        <div class="art-card-tags">${art.tags.map(tag => `<span>${tag}</span>`).join('')}</div>
       </div>
     </a>
   `).join('');
@@ -884,6 +986,14 @@ document.querySelectorAll('.filter-pill').forEach(button => {
   });
 });
 
+document.querySelectorAll('.atlas-pill').forEach(button => {
+  button.addEventListener('click', () => {
+    activeAtlasFilter = button.dataset.atlasFilter;
+    document.querySelectorAll('.atlas-pill').forEach(btn => btn.classList.toggle('active', btn === button));
+    renderExampleAtlas();
+  });
+});
+
 document.querySelectorAll('.timeline-window-pill').forEach(button => {
   button.addEventListener('click', () => {
     currentTimelineWindow = button.dataset.window;
@@ -896,5 +1006,6 @@ renderParallelTimeline();
 setEra('ancient');
 setPathway('caravaggio');
 renderGallery();
+renderExampleAtlas();
 renderGlossary();
 renderQuestion();
