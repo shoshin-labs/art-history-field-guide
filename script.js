@@ -221,6 +221,135 @@ const pathways = {
   }
 };
 
+const artworks = [
+  {
+    id: 'calling-saint-matthew',
+    title: 'The Calling of Saint Matthew',
+    artist: 'Caravaggio',
+    year: '1599–1600',
+    period: 'Baroque',
+    filter: 'baroque',
+    image: 'assets/artworks/calling-saint-matthew.jpg',
+    alt: 'Caravaggio, The Calling of Saint Matthew',
+    why: 'A near-perfect example of Baroque light used as both theology and theater.',
+    detail: 'Notice how the beam of light becomes the picture’s argument. This is one of the clearest places to feel the Baroque shift from balance to dramatic encounter.',
+    tags: ['light', 'baroque', 'religious scene'],
+    link: 'https://en.wikipedia.org/wiki/The_Calling_of_Saint_Matthew_(Caravaggio)'
+  },
+  {
+    id: 'mona-lisa',
+    title: 'Mona Lisa',
+    artist: 'Leonardo da Vinci',
+    year: 'c. 1503–1506',
+    period: 'Renaissance',
+    filter: 'renaissance',
+    image: 'assets/artworks/mona-lisa.jpg',
+    alt: 'Leonardo da Vinci, Mona Lisa',
+    why: 'A touchstone for Renaissance balance, subtle modeling, and controlled psychological presence.',
+    detail: 'This is useful not because it is famous, but because it shows how Renaissance painting can feel stable, composed, and quietly alive.',
+    tags: ['portrait', 'sfumato', 'renaissance'],
+    link: 'https://en.wikipedia.org/wiki/Mona_Lisa'
+  },
+  {
+    id: 'night-watch',
+    title: 'The Night Watch',
+    artist: 'Rembrandt',
+    year: '1642',
+    period: 'Dutch Golden Age',
+    filter: 'baroque',
+    image: 'assets/artworks/night-watch.jpg',
+    alt: 'Rembrandt, The Night Watch',
+    why: 'A group portrait turned into movement, atmosphere, and civic drama.',
+    detail: 'This helps you see how Dutch art can be realistic without being static. Rembrandt gives public life a pulse.',
+    tags: ['rembrandt', 'group portrait', 'dutch'],
+    link: 'https://en.wikipedia.org/wiki/The_Night_Watch'
+  },
+  {
+    id: 'girl-pearl',
+    title: 'Girl with a Pearl Earring',
+    artist: 'Johannes Vermeer',
+    year: 'c. 1665',
+    period: 'Dutch Golden Age',
+    filter: 'baroque',
+    image: 'assets/artworks/girl-with-a-pearl-earring.jpg',
+    alt: 'Johannes Vermeer, Girl with a Pearl Earring',
+    why: 'The counter-example to loud drama: intimate, luminous, and almost impossibly concentrated.',
+    detail: 'Use this when you want to feel how quiet painting can still be unforgettable. Light does the emotional work here with extraordinary delicacy.',
+    tags: ['vermeer', 'portrait', 'light'],
+    link: 'https://en.wikipedia.org/wiki/Girl_with_a_Pearl_Earring'
+  },
+  {
+    id: 'water-lilies',
+    title: 'Reflections of Clouds on the Water-Lily Pond',
+    artist: 'Claude Monet',
+    year: 'c. 1920',
+    period: 'Impressionism / late Monet',
+    filter: 'impressionism',
+    image: 'assets/artworks/water-lilies.jpg',
+    alt: 'Claude Monet, Reflections of Clouds on the Water-Lily Pond',
+    why: 'A strong way to feel painting become atmosphere, surface, and perception rather than description.',
+    detail: 'This is a useful bridge toward modern art because the subject begins to dissolve into color, rhythm, and sensation.',
+    tags: ['monet', 'atmosphere', 'surface'],
+    link: 'https://en.wikipedia.org/wiki/Water_Lilies_(Monet_series)'
+  },
+  {
+    id: 'starry-night',
+    title: 'The Starry Night',
+    artist: 'Vincent van Gogh',
+    year: '1889',
+    period: 'Post-Impressionism',
+    filter: 'modern-bridge',
+    image: 'assets/artworks/starry-night.jpg',
+    alt: 'Vincent van Gogh, The Starry Night',
+    why: 'Vital for understanding how emotion, brushwork, and color can carry as much meaning as subject matter.',
+    detail: 'This is one of the clearest points where art starts feeling less like passive observation and more like inner experience given visible form.',
+    tags: ['van gogh', 'emotion', 'post-impressionism'],
+    link: 'https://en.wikipedia.org/wiki/The_Starry_Night'
+  },
+  {
+    id: 'card-players',
+    title: 'The Card Players',
+    artist: 'Paul Cézanne',
+    year: '1890–1892',
+    period: 'Post-Impressionism',
+    filter: 'modern-bridge',
+    image: 'assets/artworks/card-players.jpg',
+    alt: 'Paul Cézanne, The Card Players',
+    why: 'A beautiful route into the structure that later helps make Picasso make sense.',
+    detail: 'Cézanne is less about drama than about building form. If Picasso feels difficult, Cézanne is one of the best stepping stones.',
+    tags: ['cézanne', 'structure', 'toward cubism'],
+    link: 'https://en.wikipedia.org/wiki/The_Card_Players'
+  },
+  {
+    id: 'judith-holofernes',
+    title: 'Judith Slaying Holofernes',
+    artist: 'Artemisia Gentileschi',
+    year: 'c. 1612–1613',
+    period: 'Baroque',
+    filter: 'women',
+    image: 'assets/artworks/judith-slaying-holofernes.jpg',
+    alt: 'Artemisia Gentileschi, Judith Slaying Holofernes',
+    why: 'A major Baroque work that expands the canon immediately and forcefully.',
+    detail: 'The composition, violence, and physical conviction make this one of the most memorable ways to widen a beginner’s map beyond the default male shortlist.',
+    tags: ['women artists', 'baroque', 'artemisia'],
+    link: 'https://en.wikipedia.org/wiki/Judith_Slaying_Holofernes_(Artemisia_Gentileschi,_Naples)'
+  },
+  {
+    id: 'the-cradle',
+    title: 'The Cradle',
+    artist: 'Berthe Morisot',
+    year: '1872',
+    period: 'Impressionism',
+    filter: 'women',
+    image: 'assets/artworks/the-cradle.jpg',
+    alt: 'Berthe Morisot, The Cradle',
+    why: 'A superb way to see how Impressionism can be intimate, domestic, and formally subtle at the same time.',
+    detail: 'Morisot belongs in the center of the story, not on the edges. This painting makes that obvious very quickly.',
+    tags: ['women artists', 'impressionism', 'morisot'],
+    link: 'https://en.wikipedia.org/wiki/The_Cradle_(Morisot)'
+  }
+];
+
 const glossary = [
   { term: 'Abstraction', definition: 'Moving away from literal representation of things in the visible world.' },
   { term: 'Chiaroscuro', definition: 'Strong contrast between light and dark, especially to model form and heighten drama.' },
@@ -375,7 +504,77 @@ document.getElementById('next-question').addEventListener('click', () => {
   renderQuestion();
 });
 
+let activeFilter = 'all';
+let selectedArtworkId = 'calling-saint-matthew';
+
+function getVisibleArtworks() {
+  return activeFilter === 'all'
+    ? artworks
+    : artworks.filter(art => art.filter === activeFilter);
+}
+
+function renderSpotlight(artwork) {
+  const spotlight = document.getElementById('art-spotlight');
+  spotlight.innerHTML = `
+    <div class="art-spotlight-image">
+      <img src="${artwork.image}" alt="${artwork.alt}" loading="eager" />
+    </div>
+    <div class="art-spotlight-copy">
+      <p class="eyebrow">Selected work</p>
+      <h3>${artwork.title}</h3>
+      <p class="art-meta">${artwork.artist} · ${artwork.year} · ${artwork.period}</p>
+      <p>${artwork.detail}</p>
+      <div class="art-tags">${artwork.tags.map(tag => `<span>${tag}</span>`).join('')}</div>
+      <div class="spotlight-links">
+        <a href="${artwork.link}" target="_blank" rel="noreferrer">Source / context ↗</a>
+      </div>
+    </div>
+  `;
+}
+
+function renderGallery() {
+  const visible = getVisibleArtworks();
+  if (!visible.find(art => art.id === selectedArtworkId)) {
+    selectedArtworkId = visible[0]?.id || artworks[0].id;
+  }
+
+  const gallery = document.getElementById('art-gallery');
+  gallery.innerHTML = visible.map(art => `
+    <a class="art-card ${art.id === selectedArtworkId ? 'active' : ''}" href="#art-spotlight" data-art-id="${art.id}">
+      <div class="art-image-wrap">
+        <img src="${art.image}" alt="${art.alt}" loading="eager" />
+      </div>
+      <div class="art-copy">
+        <p class="art-meta">${art.artist} · ${art.period}</p>
+        <h3>${art.title}</h3>
+        <p>${art.why}</p>
+      </div>
+    </a>
+  `).join('');
+
+  const selected = artworks.find(art => art.id === selectedArtworkId) || visible[0] || artworks[0];
+  renderSpotlight(selected);
+
+  gallery.querySelectorAll('[data-art-id]').forEach(card => {
+    card.addEventListener('click', event => {
+      event.preventDefault();
+      selectedArtworkId = card.dataset.artId;
+      renderGallery();
+      document.getElementById('art-spotlight').scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    });
+  });
+}
+
+document.querySelectorAll('.filter-pill').forEach(button => {
+  button.addEventListener('click', () => {
+    activeFilter = button.dataset.filter;
+    document.querySelectorAll('.filter-pill').forEach(btn => btn.classList.toggle('active', btn === button));
+    renderGallery();
+  });
+});
+
 setEra('ancient');
 setPathway('caravaggio');
+renderGallery();
 renderGlossary();
 renderQuestion();

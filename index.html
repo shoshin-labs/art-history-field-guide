@@ -16,40 +16,58 @@
       <nav class="topbar">
         <a class="brand" href="#top">Art History Field Guide</a>
         <div class="topbar-links">
+          <a href="#visuals">Visuals</a>
           <a href="#timeline">Timeline</a>
-          <a href="#movements">Movements</a>
+          <a href="#pathways">Pathways</a>
           <a href="#look">How to Look</a>
           <a href="#resources">Resources</a>
         </div>
       </nav>
 
-      <div class="hero-copy">
-        <p class="eyebrow">A substantial quick guide for curious beginners</p>
-        <h1>Learn the shape of art history without drowning in it.</h1>
-        <p class="lede">
-          Start with the big map, then follow the threads you actually care about: the drama of Caravaggio,
-          the humanity of Rembrandt, the reinvention of Picasso, and the visual language that connects them.
-        </p>
+      <div class="hero-layout">
+        <div class="hero-copy">
+          <p class="eyebrow">A substantial quick guide for curious beginners</p>
+          <h1>Learn the shape of art history without drowning in it.</h1>
+          <p class="lede">
+            Start with the big map, then follow the threads you actually care about: the drama of Caravaggio,
+            the humanity of Rembrandt, the reinvention of Picasso, and the visual language that connects them.
+          </p>
 
-        <div class="hero-actions">
-          <a class="button primary" href="#start-here">Start here</a>
-          <a class="button secondary" href="#pathways">Find my path</a>
+          <div class="hero-actions">
+            <a class="button primary" href="#start-here">Start here</a>
+            <a class="button secondary" href="#visuals">See the art</a>
+          </div>
+
+          <div class="hero-highlights">
+            <div class="highlight-card">
+              <span class="highlight-kicker">Best for</span>
+              <strong>Beginners who want a usable mental map</strong>
+            </div>
+            <div class="highlight-card">
+              <span class="highlight-kicker">Includes</span>
+              <strong>Timeline, visual examples, artist paths, glossary, and smart links</strong>
+            </div>
+            <div class="highlight-card">
+              <span class="highlight-kicker">Use it for</span>
+              <strong>Museum visits, self-study, and better conversations about art</strong>
+            </div>
+          </div>
         </div>
 
-        <div class="hero-highlights">
-          <div class="highlight-card">
-            <span class="highlight-kicker">Best for</span>
-            <strong>Beginners who want a usable mental map</strong>
-          </div>
-          <div class="highlight-card">
-            <span class="highlight-kicker">Includes</span>
-            <strong>Timeline, key movements, artist paths, glossary, and smart links</strong>
-          </div>
-          <div class="highlight-card">
-            <span class="highlight-kicker">Use it for</span>
-            <strong>Museum visits, self-study, and better conversations about art</strong>
-          </div>
-        </div>
+        <aside class="hero-mosaic" aria-label="Featured artworks preview">
+          <figure class="mosaic-card tall">
+            <img loading="eager" src="assets/artworks/calling-saint-matthew.jpg" alt="Caravaggio, The Calling of Saint Matthew" />
+            <figcaption>Caravaggio · light as drama</figcaption>
+          </figure>
+          <figure class="mosaic-card">
+            <img loading="eager" src="assets/artworks/girl-with-a-pearl-earring.jpg" alt="Johannes Vermeer, Girl with a Pearl Earring" />
+            <figcaption>Vermeer · quiet light</figcaption>
+          </figure>
+          <figure class="mosaic-card">
+            <img loading="eager" src="assets/artworks/starry-night.jpg" alt="Vincent van Gogh, The Starry Night" />
+            <figcaption>Van Gogh · emotion in paint</figcaption>
+          </figure>
+        </aside>
       </div>
     </header>
 
@@ -82,6 +100,28 @@
             </ol>
           </div>
         </div>
+      </section>
+
+      <section class="panel visuals-panel" id="visuals">
+        <div class="section-heading with-controls">
+          <div>
+            <p class="eyebrow">Visual anchors</p>
+            <h2>See the periods, don’t just read about them</h2>
+            <p>Use the filters to jump between key periods and artists. Each card includes a short reason the work matters.</p>
+          </div>
+          <div class="gallery-filters" role="tablist" aria-label="Artwork filters">
+            <button class="filter-pill active" data-filter="all">All</button>
+            <button class="filter-pill" data-filter="renaissance">Renaissance</button>
+            <button class="filter-pill" data-filter="baroque">Baroque</button>
+            <button class="filter-pill" data-filter="impressionism">Impressionism</button>
+            <button class="filter-pill" data-filter="modern-bridge">Toward modernism</button>
+            <button class="filter-pill" data-filter="women">Women artists</button>
+          </div>
+        </div>
+
+        <div id="art-gallery" class="art-gallery" aria-live="polite"></div>
+        <article class="art-spotlight" id="art-spotlight"></article>
+        <p class="credit-note">Images embedded from publicly accessible Wikimedia-hosted sources; click through each card for a source/context page.</p>
       </section>
 
       <section class="panel" id="timeline">
@@ -150,6 +190,28 @@
           </article>
         </div>
         <div class="path-detail" id="path-detail"></div>
+      </section>
+
+      <section class="panel women-panel" id="women-artists">
+        <div class="section-heading">
+          <p class="eyebrow">Broaden the map</p>
+          <h2>Women artists worth adding early</h2>
+          <p>If you want a fuller picture of art history, add these names into your first mental map rather than treating them as an afterthought.</p>
+        </div>
+        <div class="women-grid">
+          <article class="note-card artist-note">
+            <h3>Artemisia Gentileschi</h3>
+            <p>Baroque power, violence, theatrical light, and one of the strongest counters to a male-only story of 17th-century painting.</p>
+          </article>
+          <article class="note-card artist-note">
+            <h3>Berthe Morisot</h3>
+            <p>Essential to Impressionism and brilliant on domestic modern life, softness, speed, and atmosphere.</p>
+          </article>
+          <article class="note-card artist-note">
+            <h3>Angelica Kauffman</h3>
+            <p>A key 18th-century painter who helps open up Neoclassicism beyond the usual all-male shortlist.</p>
+          </article>
+        </div>
       </section>
 
       <section class="panel" id="movements">
