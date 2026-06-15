@@ -392,6 +392,216 @@ const quizData = [
   }
 ];
 
+const timelineWindows = {
+  all: { start: -3000, end: 2025, label: '3000 BCE → now' },
+  oldmasters: { start: 1400, end: 1900, label: '1400 → 1900' },
+  modern: { start: 1860, end: 2025, label: '1860 → now' }
+};
+
+const timelineLanes = [
+  {
+    id: 'ancient-worlds',
+    label: 'Mediterranean & ancient worlds',
+    items: [
+      {
+        id: 'egypt-near-east',
+        title: 'Egyptian and Near Eastern monumentality',
+        start: -3000,
+        end: -500,
+        tone: 'ochre',
+        summary: 'Monumental art tied to kingship, death, divinity, and durable symbolic order.',
+        bullets: ['Think tombs, reliefs, hieratic scale, and images made to stabilize cosmic and political power.', 'Useful because it establishes how deeply art begins in ritual, rule, and memory.']
+      },
+      {
+        id: 'classical-greece',
+        title: 'Classical Greece',
+        start: -800,
+        end: -146,
+        tone: 'sky',
+        summary: 'A foundational moment for naturalism, proportion, heroic bodies, and idealized form.',
+        bullets: ['This is one of the key roots of later Western ideas about beauty and anatomy.', 'Useful when Renaissance artists start looking back to antiquity for models.']
+      },
+      {
+        id: 'roman-world',
+        title: 'Roman world',
+        start: -200,
+        end: 476,
+        tone: 'ink',
+        summary: 'Empire-scale art of portraiture, public space, realism, engineering, and political image-making.',
+        bullets: ['Romans expand art into architecture, civic display, and lifelike elite portraiture.', 'A major bridge between classical antiquity and later revivals of antiquity.']
+      }
+    ]
+  },
+  {
+    id: 'europe',
+    label: 'Europe',
+    items: [
+      {
+        id: 'medieval-europe',
+        title: 'Medieval & Gothic Europe',
+        start: 500,
+        end: 1400,
+        tone: 'plum',
+        summary: 'Sacred storytelling, manuscript illumination, icons, cathedrals, and theology before realism becomes the main goal.',
+        bullets: ['Good corrective to the idea that art always aims first at naturalism.', 'Here meaning, devotion, and symbolic clarity often matter more than lifelike space.']
+      },
+      {
+        id: 'renaissance-humanism',
+        title: 'Renaissance',
+        start: 1400,
+        end: 1600,
+        tone: 'ochre',
+        summary: 'Perspective, anatomy, classical revival, and a new confidence in ordering the visible world.',
+        bullets: ['This is the cleanest place to learn balance, humanism, and idealized realism.', 'Leonardo, Michelangelo, Raphael, and Titian make later breaks easier to understand.']
+      },
+      {
+        id: 'baroque-europe',
+        title: 'Baroque',
+        start: 1600,
+        end: 1750,
+        tone: 'rose',
+        summary: 'Light, movement, persuasion, spectacle, and emotional force.',
+        bullets: ['Caravaggio, Bernini, Rembrandt, Rubens, and Velázquez all show different versions of intensity.', 'This is where art becomes unmistakably theatrical and embodied.']
+      },
+      {
+        id: 'euro-18th-19th',
+        title: 'Neoclassicism → Romanticism → Realism',
+        start: 1750,
+        end: 1875,
+        tone: 'sage',
+        summary: 'A crowded century of discipline, revolt, emotion, politics, and ordinary life entering high art.',
+        bullets: ['These movements overlap rather than lining up neatly.', 'It helps explain how Europe moves from courts and myth toward modernity and social truth.']
+      },
+      {
+        id: 'euro-impression-modern',
+        title: 'Impressionism → Post-Impressionism',
+        start: 1860,
+        end: 1905,
+        tone: 'sky',
+        summary: 'Brushwork loosens, light flickers, and painting starts shifting from description toward perception and structure.',
+        bullets: ['Monet and Morisot make atmosphere feel central.', 'Van Gogh and Cézanne then push toward emotion and modern structure.']
+      },
+      {
+        id: 'euro-modern-contemporary',
+        title: 'Modernism & contemporary Europe',
+        start: 1905,
+        end: 2025,
+        tone: 'ink',
+        summary: 'Cubism, abstraction, conceptual practice, postwar reinventions, and an art world that no longer obeys one style.',
+        bullets: ['Picasso matters here, but so do Matisse, Kandinsky, Duchamp, Surrealism, and later conceptual turns.', 'Once here, art stops agreeing on what art has to be.']
+      }
+    ]
+  },
+  {
+    id: 'islamic',
+    label: 'Islamic worlds',
+    items: [
+      {
+        id: 'islamic-golden',
+        title: 'Islamic manuscript, geometry, and court arts',
+        start: 700,
+        end: 1400,
+        tone: 'sage',
+        summary: 'Calligraphy, geometry, luxury objects, architecture, and manuscript traditions flourish across a vast connected world.',
+        bullets: ['Crucial for breaking the false impression that medieval art history is only a European story.', 'Shows a different relationship between text, ornament, sacred space, and figuration.']
+      },
+      {
+        id: 'ottoman-persian-mughal',
+        title: 'Ottoman, Safavid, and Mughal court cultures',
+        start: 1400,
+        end: 1800,
+        tone: 'plum',
+        summary: 'Painting, textiles, architecture, albums, and luxury production continue in highly refined court settings.',
+        bullets: ['These worlds overlap directly with Europe’s Renaissance and Baroque centuries.', 'Useful for seeing that simultaneity does not mean sameness of style or purpose.']
+      }
+    ]
+  },
+  {
+    id: 'south-asia',
+    label: 'South Asia',
+    items: [
+      {
+        id: 'south-asia-sacred',
+        title: 'Temple, sculpture, and sacred-image traditions',
+        start: -200,
+        end: 1600,
+        tone: 'ochre',
+        summary: 'A long, rich history of sculpture, architecture, and devotional image-making across multiple religions and courts.',
+        bullets: ['Important because it stretches across many centuries rather than fitting a single short “movement.”', 'Helps broaden the idea of what major art history looks like beyond European period labels.']
+      },
+      {
+        id: 'south-asia-courts-modern',
+        title: 'Court painting to modern South Asian art',
+        start: 1500,
+        end: 2025,
+        tone: 'rose',
+        summary: 'Miniature traditions, colonial encounters, and modern/postcolonial reinventions reshape the visual field.',
+        bullets: ['This lane runs in parallel with Europe’s Baroque, modern, and contemporary periods.', 'Useful when thinking about empire, modernity, and global art histories together.']
+      }
+    ]
+  },
+  {
+    id: 'east-asia',
+    label: 'East Asia',
+    items: [
+      {
+        id: 'china-handscroll',
+        title: 'Chinese scroll painting & literati traditions',
+        start: 600,
+        end: 1700,
+        tone: 'sky',
+        summary: 'Landscape, brushwork, philosophy, and cultivated seeing become central to elite visual culture.',
+        bullets: ['A different artistic logic from Western illusionism: mood, rhythm, and brush-thinking matter deeply.', 'Especially useful if you want alternatives to perspective-centered art history.']
+      },
+      {
+        id: 'japan-edo-ukiyoe',
+        title: 'Edo Japan & ukiyo-e',
+        start: 1600,
+        end: 1868,
+        tone: 'plum',
+        summary: 'Print culture, urban pleasure worlds, design, and stylization become major forces.',
+        bullets: ['This later feeds directly into European modern taste through Japonisme.', 'A great example of cross-cultural influence arriving non-simultaneously.']
+      },
+      {
+        id: 'east-asia-modern',
+        title: 'Modern and contemporary East Asia',
+        start: 1868,
+        end: 2025,
+        tone: 'sage',
+        summary: 'Tradition, industrial modernity, war, nationalism, and global exchange all reshape artistic production.',
+        bullets: ['Useful for understanding that modernism becomes global, not just European.', 'This lane keeps expanding the story past a Paris-only map.']
+      }
+    ]
+  },
+  {
+    id: 'global-modern',
+    label: 'Global modern & contemporary',
+    items: [
+      {
+        id: 'global-modernism',
+        title: 'Global modernisms',
+        start: 1900,
+        end: 1970,
+        tone: 'ink',
+        summary: 'Many avant-gardes and national modernisms emerge at once, often shaped by empire, technology, and urban change.',
+        bullets: ['Modernism is not one style and not one place.', 'Picasso is one door in, but the room is much bigger than Paris.']
+      },
+      {
+        id: 'global-contemporary',
+        title: 'Contemporary global art',
+        start: 1970,
+        end: 2025,
+        tone: 'rose',
+        summary: 'Installation, video, identity, politics, market systems, biennials, and global circuits of display dominate the contemporary field.',
+        bullets: ['Useful because it shows art history ending in plurality, not consensus.', 'Different media and geographies now sit in the same conversation.']
+      }
+    ]
+  }
+];
+
+let currentTimelineWindow = 'all';
+let selectedTimelineBandId = 'renaissance-humanism';
+
 const eraCard = {
   title: document.getElementById('era-title'),
   range: document.getElementById('era-range'),
@@ -401,6 +611,107 @@ const eraCard = {
   lookfor: document.getElementById('era-lookfor'),
   artists: document.getElementById('era-artists')
 };
+
+function formatYear(year) {
+  if (year < 0) return `${Math.abs(year)} BCE`;
+  if (year === 0) return '0';
+  return `${year}`;
+}
+
+function getAllTimelineItems() {
+  return timelineLanes.flatMap(lane => lane.items.map(item => ({ ...item, laneLabel: lane.label })));
+}
+
+function setTimelineFocus(itemId) {
+  const item = getAllTimelineItems().find(entry => entry.id === itemId) || getAllTimelineItems()[0];
+  if (!item) return;
+  selectedTimelineBandId = item.id;
+
+  const focus = document.getElementById('timeline-focus');
+  focus.innerHTML = `
+    <div class="timeline-focus-top">
+      <span class="timeline-focus-range">${formatYear(item.start)} → ${formatYear(item.end)}</span>
+      <span class="timeline-focus-lane">${item.laneLabel}</span>
+    </div>
+    <h3>${item.title}</h3>
+    <div class="timeline-focus-grid">
+      <div>
+        <p>${item.summary}</p>
+      </div>
+      <div>
+        <h4>Why it matters</h4>
+        <ul>${item.bullets.map(point => `<li>${point}</li>`).join('')}</ul>
+      </div>
+    </div>
+  `;
+
+  document.querySelectorAll('.timeline-band').forEach(band => {
+    band.classList.toggle('active', band.dataset.bandId === item.id);
+  });
+}
+
+function renderParallelTimeline() {
+  const board = document.getElementById('parallel-timeline');
+  const axis = document.getElementById('timeline-axis');
+  const windowConfig = timelineWindows[currentTimelineWindow];
+  const span = windowConfig.end - windowConfig.start;
+  const width = Math.max(920, Math.round(span * 0.32));
+  const tickStep = currentTimelineWindow === 'all' ? 500 : currentTimelineWindow === 'oldmasters' ? 50 : 20;
+
+  axis.style.width = `${width}px`;
+  axis.innerHTML = '';
+
+  for (let year = windowConfig.start; year <= windowConfig.end; year += tickStep) {
+    const position = ((year - windowConfig.start) / span) * width;
+    axis.insertAdjacentHTML('beforeend', `
+      <div class="axis-tick" style="left:${position}px">
+        <span>${formatYear(year)}</span>
+      </div>
+    `);
+  }
+
+  const visibleItems = timelineLanes.flatMap(lane => lane.items.filter(item => item.end >= windowConfig.start && item.start <= windowConfig.end));
+   if (!visibleItems.find(item => item.id === selectedTimelineBandId)) {
+     selectedTimelineBandId = visibleItems[0]?.id || selectedTimelineBandId;
+   }
+
+   board.style.width = `${width}px`;
+   board.innerHTML = timelineLanes.map(lane => {
+     const items = lane.items.filter(item => item.end >= windowConfig.start && item.start <= windowConfig.end);
+     if (!items.length) return '';
+
+     const bands = items.map(item => {
+       const start = Math.max(item.start, windowConfig.start);
+       const end = Math.min(item.end, windowConfig.end);
+       const left = ((start - windowConfig.start) / span) * width;
+       const itemWidth = Math.max(88, ((end - start) / span) * width);
+       return `
+         <button
+           type="button"
+           class="timeline-band tone-${item.tone} ${item.id === selectedTimelineBandId ? 'active' : ''}"
+           data-band-id="${item.id}"
+           style="left:${left}px; width:${itemWidth}px"
+           title="${item.title}: ${formatYear(item.start)} to ${formatYear(item.end)}"
+         >
+           <span>${item.title}</span>
+         </button>
+       `;
+     }).join('');
+
+     return `
+       <div class="timeline-lane">
+         <div class="timeline-lane-label">${lane.label}</div>
+         <div class="timeline-lane-track">${bands}</div>
+       </div>
+     `;
+   }).join('');
+
+   board.querySelectorAll('.timeline-band').forEach(button => {
+     button.addEventListener('click', () => setTimelineFocus(button.dataset.bandId));
+   });
+
+   setTimelineFocus(selectedTimelineBandId);
+}
 
 function renderList(el, items) {
   el.innerHTML = items.map(item => `<li>${item}</li>`).join('');
@@ -573,6 +884,15 @@ document.querySelectorAll('.filter-pill').forEach(button => {
   });
 });
 
+document.querySelectorAll('.timeline-window-pill').forEach(button => {
+  button.addEventListener('click', () => {
+    currentTimelineWindow = button.dataset.window;
+    document.querySelectorAll('.timeline-window-pill').forEach(btn => btn.classList.toggle('active', btn === button));
+    renderParallelTimeline();
+  });
+});
+
+renderParallelTimeline();
 setEra('ancient');
 setPathway('caravaggio');
 renderGallery();

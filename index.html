@@ -127,8 +127,50 @@
       <section class="panel" id="timeline">
         <div class="section-heading with-controls">
           <div>
-            <p class="eyebrow">Timeline explorer</p>
-            <h2>Move through the major periods</h2>
+            <p class="eyebrow">Big-picture timeline</p>
+            <h2>See art history as overlapping lanes, not a single baton pass</h2>
+            <p>
+              Art does not move in one neat line. Different traditions develop in parallel, overlap, react, and diverge.
+              Use the view buttons to compress or zoom the timeline, then click a band to see why it matters.
+            </p>
+          </div>
+          <div class="timeline-window-controls" role="tablist" aria-label="Timeline zoom levels">
+            <button class="timeline-window-pill active" data-window="all">3000 BCE → now</button>
+            <button class="timeline-window-pill" data-window="oldmasters">1400 → 1900</button>
+            <button class="timeline-window-pill" data-window="modern">1860 → now</button>
+          </div>
+        </div>
+
+        <div class="parallel-timeline-shell">
+          <div class="timeline-side-notes">
+            <article class="note-card warm compact-note">
+              <h3>How to read this</h3>
+              <p>Each horizontal lane is a broad tradition or region. The bands show when that artistic world is especially important or visibly formative.</p>
+            </article>
+            <article class="note-card compact-note timeline-key-card">
+              <h3>Three useful truths</h3>
+              <ul>
+                <li><strong>Parallel:</strong> Song painting, Islamic manuscript culture, and Gothic Europe all coexist.</li>
+                <li><strong>Overlapping:</strong> Impressionism, Symbolism, and academic painting share the same decades.</li>
+                <li><strong>Uneven:</strong> Older forms never vanish neatly when new ones appear.</li>
+              </ul>
+            </article>
+          </div>
+
+          <div class="parallel-timeline-board">
+            <div class="timeline-axis" id="timeline-axis" aria-hidden="true"></div>
+            <div class="timeline-lanes" id="parallel-timeline" aria-label="Parallel visual timeline of art history"></div>
+          </div>
+        </div>
+
+        <article class="timeline-focus-card" id="timeline-focus" aria-live="polite"></article>
+      </section>
+
+      <section class="panel" id="era-explorer">
+        <div class="section-heading with-controls">
+          <div>
+            <p class="eyebrow">Era explorer</p>
+            <h2>Then move through the major Western periods</h2>
             <p>Click any period to see what matters, what to look for, and which artists anchor it.</p>
           </div>
           <div class="timeline-controls" role="tablist" aria-label="Art history periods">
