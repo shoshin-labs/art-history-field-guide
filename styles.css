@@ -421,7 +421,10 @@ main { display:grid; gap:24px; }
 }
 .work-meta { margin:0; color:var(--accent); font-size:.9rem; font-weight:700; }
 .deep-link { color:var(--accent); font-weight:700; font-size:.95rem; margin-top:auto; }
-.works-grid--deep { grid-template-columns:repeat(2, minmax(0,1fr)); gap:22px; }
+.works-grid--deep {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
 .work-card--deep {
   display:flex;
   flex-direction:column;
@@ -996,6 +999,7 @@ body.modal-open {
 
 @media (max-width: 1180px) {
   .hero-layout, .period-header, .overview-slice, .timeline-explorer__focus, .chapter-feature-card { grid-template-columns:1fr; }
+  .works-grid--deep { grid-template-columns:repeat(2, minmax(0,1fr)); }
   .hero-copy { padding-top:30px; }
 }
 @media (max-width: 980px) {
