@@ -36,6 +36,7 @@ a { color: inherit; text-decoration:none; }
 }
 .hero { padding:clamp(24px, 2vw, 34px) clamp(24px, 2.2vw, 38px) clamp(30px, 2.4vw, 40px); margin-bottom:28px; overflow:hidden; }
 .panel { padding:var(--panel-pad); }
+.quick-timeline { overflow: hidden; }
 .topbar { display:flex; justify-content:space-between; gap:20px; align-items:center; }
 .brand { font-family:"Cormorant Garamond", serif; font-size:1.7rem; font-weight:700; }
 .topbar-links { display:flex; flex-wrap:wrap; gap:16px; color:var(--ink-soft); font-weight:600; }
@@ -87,6 +88,64 @@ h3 { font-size:1.65rem; margin-bottom:10px; }
 .hero-preview-intro, .question-card { padding:16px 18px; background:rgba(255,249,242,0.9); border:1px solid var(--line); border-radius:22px; }
 .hero-visual-kicker { display:inline-flex; align-items:center; min-height:28px; padding:0 12px; border-radius:999px; background:rgba(139,63,32,.1); color:var(--accent); font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.08em; }
 .hero-preview-intro p { margin:10px 0 0; color:var(--ink-soft); line-height:1.6; }
+.timeline-heading {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 18px;
+}
+.timeline-heading .button {
+  flex-shrink: 0;
+}
+.timeline-rail {
+  display: flex;
+  gap: 14px;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  padding-bottom: 8px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+.timeline-card {
+  position: relative;
+  display: grid;
+  flex: 0 0 260px;
+  width: 260px;
+  gap: 10px;
+  min-height: 188px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: linear-gradient(180deg, rgba(255,252,247,0.98), rgba(248,240,230,0.94));
+  box-shadow: 0 16px 36px rgba(70, 42, 17, 0.08);
+  scroll-snap-align: start;
+}
+.timeline-card::before {
+  content: "";
+  position: absolute;
+  inset: 16px auto 16px -8px;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(139,63,32,0), rgba(139,63,32,0.55), rgba(139,63,32,0));
+}
+.timeline-card__range {
+  color: var(--accent);
+  font-size: .82rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+.timeline-card strong {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.7rem;
+  line-height: 1.02;
+}
+.timeline-card p {
+  margin: 0;
+  color: var(--ink-soft);
+  line-height: 1.55;
+}
 .mosaic-six, .period-header-preview, .overview-preview-grid, .works-grid, .period-grid, .map-routes, .next-grid { display:grid; gap:16px; }
 .mosaic-six { grid-template-columns:repeat(3, minmax(0,1fr)); }
 .period-header-preview { grid-template-columns:repeat(2, minmax(0,1fr)); }
@@ -541,6 +600,17 @@ body.modal-open {
 }
 @media (max-width: 980px) {
   .hero-highlights, .period-grid, .works-grid, .map-routes, .next-grid, .overview-preview-grid, .mosaic-six { grid-template-columns:1fr 1fr; }
+  .timeline-heading {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+  .timeline-rail {
+    padding-inline: 0;
+  }
+  .timeline-card {
+    flex-basis: 250px;
+    width: 250px;
+  }
 
   .guide-modal__dialog {
     width: min(98vw, 1680px);
@@ -581,8 +651,32 @@ body.modal-open {
   .site-shell { padding:14px; }
   .hero, .panel { padding:20px; border-radius:22px; }
   h1 { font-size:clamp(2.7rem, 14vw, 4.1rem); }
-  .hero-highlights, .period-grid, .works-grid, .map-routes, .next-grid, .overview-preview-grid, .mosaic-six, .period-header-preview { grid-template-columns:1fr; }
+  .hero-highlights, .period-grid, .works-grid, .map-routes, .next-grid, .overview-preview-grid, .period-header-preview { grid-template-columns:1fr; }
+  .mosaic-six { grid-template-columns:repeat(2, minmax(0,1fr)); }
+  .mosaic-six img:nth-child(n+5) { display:none; }
   .topbar { flex-direction:column; align-items:flex-start; }
+  .topbar-links {
+    width: 100%;
+    gap: 10px;
+  }
+  .topbar-links a {
+    min-height: 40px;
+    padding: 0 12px;
+    display: inline-flex;
+    align-items: center;
+    border-radius: 999px;
+    background: rgba(255,255,255,.62);
+    border: 1px solid var(--line);
+  }
+  .timeline-rail {
+    margin-inline: -4px;
+    padding-inline: 4px;
+  }
+  .timeline-card {
+    flex-basis: min(268px, 86vw);
+    width: min(268px, 86vw);
+    min-height: 176px;
+  }
 
   .guide-modal {
     padding: 0;
