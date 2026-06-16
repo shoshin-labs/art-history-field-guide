@@ -17,7 +17,7 @@
       path: 'periods/foundations.html',
       title: 'Foundations',
       range: 'c. 3100 BCE → 1300 CE',
-      summary: 'Ancient, classical, Byzantine, and early medieval foundations: power, sacred images, monuments, manuscripts, mosaics, and cathedral worlds.',
+      summary: 'Power, devotion, monument, empire, ritual, and memory remain tightly bound together in these ancient and medieval image-worlds.',
       artists: 'Unknown makers, Phidias workshop, Roman sculptors, Byzantine mosaicists, Insular scribes, cathedral workshops',
       image: 'assets/examples/parthenon-sculptures.jpg'
     },
@@ -25,7 +25,7 @@
       path: 'periods/parallel-worlds.html',
       title: 'Parallel worlds',
       range: 'c. 1000 → 1800, with later echoes',
-      summary: 'Chinese scrolls, Persian and Mughal painting, Japanese print culture, and South Asian architecture widen the story beyond a single European baton-pass.',
+      summary: 'A wider art history in which Chinese, Persian, Mughal, Japanese, and South Asian traditions unfold according to their own aims and pressures.',
       artists: 'Fan Kuan, Sultan Muhammad, Bichitr, Hokusai, Ustad Ahmad Lahori',
       image: 'assets/examples/travelers-among-mountains-and-streams.jpg'
     },
@@ -33,7 +33,7 @@
       path: 'periods/renaissance.html',
       title: 'Renaissance',
       range: 'c. 1300 → 1600',
-      summary: 'Perspective, humanism, anatomy, revived classicism, and the tightening of painting into a measured, legible window on the world.',
+      summary: 'Space becomes more measured, bodies more deliberate, and the classical past returns as both model and challenge.',
       artists: 'Giotto, Jan van Eyck, Leonardo da Vinci, Michelangelo, Raphael',
       image: 'assets/artworks/mona-lisa.jpg'
     },
@@ -41,7 +41,7 @@
       path: 'periods/baroque-dutch.html',
       title: 'Baroque and Dutch Golden Age',
       range: 'c. 1600 → 1700',
-      summary: 'Caravaggio, Artemisia, Rembrandt, Bernini, Velázquez, and Vermeer: light, drama, spectacle, intimacy, and civic life.',
+      summary: 'The seventeenth century heightens everything: theatrical light, charged gesture, civic identity, and quiet interiors of startling intensity.',
       artists: 'Caravaggio, Artemisia Gentileschi, Bernini, Velázquez, Rembrandt, Vermeer',
       image: 'assets/artworks/calling-saint-matthew.jpg'
     },
@@ -49,7 +49,7 @@
       path: 'periods/eighteenth-nineteenth.html',
       title: '18th and 19th centuries',
       range: 'c. 1700 → 1875',
-      summary: 'Rococo, Neoclassicism, Romanticism, and Realism overlap rather than forming one neat queue, so the century feels argumentative and unstable.',
+      summary: 'This period works less as a sequence than as an argument among elegance, virtue, revolution, dream, landscape, and labour.',
       artists: 'Fragonard, Jacques-Louis David, Fuseli, Delacroix, Constable, Millet, Manet',
       image: 'assets/examples/liberty-leading-the-people.jpg'
     },
@@ -57,7 +57,7 @@
       path: 'periods/impressionism-modern-break.html',
       title: 'Impressionism to the modern break',
       range: 'c. 1860 → 1907',
-      summary: 'Monet, Degas, Cézanne, Van Gogh, and others loosen the window: light flickers, brushwork shows, structure shifts, and painting starts breaking its own rules.',
+      summary: 'Painting admits weather, sensation, visible brushwork, and structural instability, opening gradually into the modern break.',
       artists: 'Monet, Morisot, Manet, Cézanne, Van Gogh, Gauguin',
       image: 'assets/artworks/starry-night.jpg'
     },
@@ -65,7 +65,7 @@
       path: 'periods/modernism.html',
       title: 'Modernism',
       range: 'c. 1907 → 1970',
-      summary: 'Picasso, abstraction, collage, conceptual expansion, and the explosion of what counts as art in the twentieth century.',
+      summary: 'A restless field of fracture, reduction, collage, symbol, gesture, and concept in which the terms of art are renegotiated.',
       artists: 'Picasso, Kandinsky, Duchamp, Kahlo, Pollock, Warhol',
       image: 'assets/examples/les-demoiselles-davignon.jpg'
     },
@@ -73,7 +73,7 @@
       path: 'periods/contemporary.html',
       title: 'Contemporary and living questions',
       range: 'c. 1970 → now',
-      summary: 'Installation, photography, identity, institutions, media, networks, and the question of what art is doing right now.',
+      summary: 'A plural present in which media, identity, institutions, memory, and circulation all shape the encounter with the work.',
       artists: 'Judy Chicago, Cindy Sherman, Louise Bourgeois, and many more living contexts',
       image: 'assets/examples/untitled-film-stills.jpg'
     }
@@ -151,9 +151,9 @@
     <div class="guide-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="guide-modal-title">
       <div class="guide-modal__header">
         <div class="guide-modal__heading">
-          <span class="guide-modal__eyebrow">Chapter view</span>
+          <span class="guide-modal__eyebrow">Gallery view</span>
           <h2 id="guide-modal-title">Loading chapter…</h2>
-          <p class="guide-modal__summary" id="guide-modal-summary">Loading your place in the art-history map…</p>
+          <p class="guide-modal__summary" id="guide-modal-summary">Opening your place in the wider sequence…</p>
         </div>
         <div class="guide-modal__actions">
           <div class="guide-modal__jump-controls" aria-label="Chapter navigation">
@@ -171,7 +171,7 @@
         </div>
         <div class="guide-modal__spotlight-copy">
           <span class="guide-modal__kicker" id="guide-modal-kicker">Art history field guide</span>
-          <strong class="guide-modal__range" id="guide-modal-range">Orienting chapter…</strong>
+          <strong class="guide-modal__range" id="guide-modal-range">Preparing the chapter…</strong>
           <p class="guide-modal__counter" id="guide-modal-counter">Chapter 1 of 8</p>
         </div>
       </div>
@@ -180,8 +180,8 @@
       </div>
       <div class="guide-modal__rail-shell">
         <div class="guide-modal__rail-intro">
-          <span>Browse chapters</span>
-          <p>Use the filmstrip to move between chapters without losing your place.</p>
+          <span>Move between chapters</span>
+          <p>Use the filmstrip to move across the sequence without stepping out of the experience.</p>
         </div>
         <div class="guide-modal__rail" role="tablist" aria-label="Art history chapters"></div>
       </div>
@@ -258,10 +258,10 @@
           <p class="timeline-explorer__range">${entry.range}</p>
           <h3>${entry.title}</h3>
           <p class="timeline-explorer__summary">${entry.summary}</p>
-          <p class="timeline-explorer__artists"><strong>Key names / anchors:</strong> ${entry.artists}</p>
+          <p class="timeline-explorer__artists"><strong>Names to carry with you:</strong> ${entry.artists}</p>
           <div class="timeline-explorer__actions">
             <button class="timeline-explorer__nav" type="button" data-direction="prev" ${prevDisabled}>← Prev</button>
-            <a class="button primary" data-modal="true" href="${chapterUrl}">Open this chapter</a>
+            <a class="button primary" data-modal="true" href="${chapterUrl}">Step into this chapter</a>
             <button class="timeline-explorer__nav" type="button" data-direction="next" ${nextDisabled}>Next →</button>
           </div>
         </div>
@@ -304,7 +304,7 @@
   function updateModalChrome(url) {
     const entry = getChapterEntry(url);
     const fallbackTitle = 'Art History chapter';
-    const fallbackSummary = 'Open chapters in a focused, visual overlay and move across periods without losing the bigger map.';
+    const fallbackSummary = 'Open a chapter in a focused overlay and move through the sequence without leaving the broader map behind.';
 
     if (!entry) {
       modalTitle.textContent = fallbackTitle;
@@ -327,7 +327,7 @@
     modalSummary.textContent = entry.summary;
     modalRange.textContent = entry.range;
     modalCounter.textContent = `Chapter ${entry.index + 1} of ${chapterMeta.length}`;
-    modalKicker.textContent = 'Immersive browse mode';
+    modalKicker.textContent = 'Immersive gallery mode';
     modalSpotlightImage.src = new URL(entry.image, guideBaseUrl).toString();
     modalSpotlightImage.alt = entry.title;
 
@@ -370,7 +370,7 @@
     currentUrl = absolute;
     lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     modalTitle.textContent = 'Loading chapter…';
-    modalSummary.textContent = 'Opening a richer view with faster chapter browsing…';
+    modalSummary.textContent = 'Opening a richer view so you can move through the chapters without breaking the spell…';
     modalOpenPage.href = absolute;
     updateModalChrome(absolute);
 
