@@ -971,7 +971,7 @@ body.modal-open {
   }
 
   .works-grid {
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .chapter-gallery-grid {
@@ -1003,7 +1003,7 @@ body.modal-open {
   }
 
   .works-grid {
-    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
   .overview-preview-grid,
