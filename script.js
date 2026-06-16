@@ -18,6 +18,7 @@
       title: 'Foundations',
       range: 'c. 3100 BCE → 1300 CE',
       summary: 'Ancient, classical, Byzantine, and early medieval foundations: power, sacred images, monuments, manuscripts, mosaics, and cathedral worlds.',
+      artists: 'Unknown makers, Phidias workshop, Roman sculptors, Byzantine mosaicists, Insular scribes, cathedral workshops',
       image: 'assets/examples/parthenon-sculptures.jpg'
     },
     {
@@ -25,6 +26,7 @@
       title: 'Parallel worlds',
       range: 'c. 1000 → 1800, with later echoes',
       summary: 'Chinese scrolls, Persian and Mughal painting, Japanese print culture, and South Asian architecture widen the story beyond a single European baton-pass.',
+      artists: 'Fan Kuan, Sultan Muhammad, Bichitr, Hokusai, Ustad Ahmad Lahori',
       image: 'assets/examples/travelers-among-mountains-and-streams.jpg'
     },
     {
@@ -32,6 +34,7 @@
       title: 'Renaissance',
       range: 'c. 1300 → 1600',
       summary: 'Perspective, humanism, anatomy, revived classicism, and the tightening of painting into a measured, legible window on the world.',
+      artists: 'Giotto, Jan van Eyck, Leonardo da Vinci, Michelangelo, Raphael',
       image: 'assets/artworks/mona-lisa.jpg'
     },
     {
@@ -39,6 +42,7 @@
       title: 'Baroque and Dutch Golden Age',
       range: 'c. 1600 → 1700',
       summary: 'Caravaggio, Artemisia, Rembrandt, Bernini, Velázquez, and Vermeer: light, drama, spectacle, intimacy, and civic life.',
+      artists: 'Caravaggio, Artemisia Gentileschi, Bernini, Velázquez, Rembrandt, Vermeer',
       image: 'assets/artworks/calling-saint-matthew.jpg'
     },
     {
@@ -46,6 +50,7 @@
       title: '18th and 19th centuries',
       range: 'c. 1700 → 1875',
       summary: 'Rococo, Neoclassicism, Romanticism, and Realism overlap rather than forming one neat queue, so the century feels argumentative and unstable.',
+      artists: 'Fragonard, Jacques-Louis David, Fuseli, Delacroix, Constable, Millet, Manet',
       image: 'assets/examples/liberty-leading-the-people.jpg'
     },
     {
@@ -53,6 +58,7 @@
       title: 'Impressionism to the modern break',
       range: 'c. 1860 → 1907',
       summary: 'Monet, Degas, Cézanne, Van Gogh, and others loosen the window: light flickers, brushwork shows, structure shifts, and painting starts breaking its own rules.',
+      artists: 'Monet, Morisot, Manet, Cézanne, Van Gogh, Gauguin',
       image: 'assets/artworks/starry-night.jpg'
     },
     {
@@ -60,6 +66,7 @@
       title: 'Modernism',
       range: 'c. 1907 → 1970',
       summary: 'Picasso, abstraction, collage, conceptual expansion, and the explosion of what counts as art in the twentieth century.',
+      artists: 'Picasso, Kandinsky, Duchamp, Kahlo, Pollock, Warhol',
       image: 'assets/examples/les-demoiselles-davignon.jpg'
     },
     {
@@ -67,6 +74,7 @@
       title: 'Contemporary and living questions',
       range: 'c. 1970 → now',
       summary: 'Installation, photography, identity, institutions, media, networks, and the question of what art is doing right now.',
+      artists: 'Judy Chicago, Cindy Sherman, Louise Bourgeois, and many more living contexts',
       image: 'assets/examples/untitled-film-stills.jpg'
     }
   ];
@@ -213,6 +221,80 @@
     }).join('');
   }
 
+  function renderTimelineExplorer() {
+    const root = document.querySelector('[data-timeline-explorer]');
+    if (!root) return;
+
+    root.innerHTML = `
+      <div class="timeline-explorer__rail" role="tablist" aria-label="Interactive art history timeline"></div>
+      <article class="timeline-explorer__focus" aria-live="polite"></article>
+    `;
+
+    const rail = root.querySelector('.timeline-explorer__rail');
+    const focus = root.querySelector('.timeline-explorer__focus');
+    let activeIndex = 0;
+
+    function renderFocus(index) {
+      const entry = chapterMeta[index];
+      if (!entry) return;
+
+      activeIndex = index;
+      rail.querySelectorAll('.timeline-stop').forEach((button, buttonIndex) => {
+        const isActive = buttonIndex === index;
+        button.classList.toggle('is-active', isActive);
+        button.setAttribute('aria-selected', String(isActive));
+      });
+
+      const prevDisabled = index === 0 ? 'disabled' : '';
+      const nextDisabled = index === chapterMeta.length - 1 ? 'disabled' : '';
+      const absoluteImage = new URL(entry.image, guideBaseUrl).toString();
+      const chapterUrl = new URL(entry.path, guideBaseUrl).toString();
+
+      focus.innerHTML = `
+        <div class="timeline-explorer__media">
+          <img src="${absoluteImage}" alt="${entry.title}" loading="eager" />
+        </div>
+        <div class="timeline-explorer__copy">
+          <p class="timeline-explorer__range">${entry.range}</p>
+          <h3>${entry.title}</h3>
+          <p class="timeline-explorer__summary">${entry.summary}</p>
+          <p class="timeline-explorer__artists"><strong>Key names / anchors:</strong> ${entry.artists}</p>
+          <div class="timeline-explorer__actions">
+            <button class="timeline-explorer__nav" type="button" data-direction="prev" ${prevDisabled}>← Prev</button>
+            <a class="button primary" data-modal="true" href="${chapterUrl}">Open this chapter</a>
+            <button class="timeline-explorer__nav" type="button" data-direction="next" ${nextDisabled}>Next →</button>
+          </div>
+        </div>
+      `;
+    }
+
+    rail.innerHTML = chapterMeta.map((entry, index) => `
+      <button class="timeline-stop" type="button" role="tab" aria-selected="false" data-index="${index}">
+        <span class="timeline-stop__dot" aria-hidden="true"></span>
+        <span class="timeline-stop__range">${entry.range}</span>
+        <strong>${entry.title}</strong>
+      </button>
+    `).join('');
+
+    rail.addEventListener('click', (event) => {
+      const button = event.target.closest('.timeline-stop');
+      if (!button) return;
+      renderFocus(Number(button.dataset.index));
+    });
+
+    focus.addEventListener('click', (event) => {
+      const nav = event.target.closest('[data-direction]');
+      if (!nav) return;
+      const direction = nav.dataset.direction === 'next' ? 1 : -1;
+      const nextIndex = activeIndex + direction;
+      if (nextIndex < 0 || nextIndex >= chapterMeta.length) return;
+      renderFocus(nextIndex);
+      rail.querySelector(`.timeline-stop[data-index="${nextIndex}"]`)?.scrollIntoView({ block: 'nearest', inline: 'center', behavior: 'smooth' });
+    });
+
+    renderFocus(activeIndex);
+  }
+
   function getAdjacentChapter(step) {
     const currentEntry = getChapterEntry(currentUrl);
     if (!currentEntry) return null;
@@ -338,6 +420,7 @@
   }
 
   buildRail();
+  renderTimelineExplorer();
 
   document.addEventListener('click', (event) => {
     const closeTrigger = event.target.closest('[data-modal-close="true"], .guide-modal__close');
