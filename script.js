@@ -12,72 +12,74 @@
   const guideRoot = `${window.location.origin}${guideBasePath}`.replace(/\/+$/g, '/');
   const guideBaseUrl = new URL(guideBasePath, window.location.origin);
   const modalHashPrefix = '#modal=';
+  // generated:chapter-meta:start
   const chapterMeta = [
     {
-      path: 'periods/foundations.html',
-      title: 'Foundations',
-      range: 'c. 3100 BCE → 1300 CE',
-      summary: 'Power, devotion, monument, empire, ritual, and memory remain tightly bound together in these ancient and medieval image-worlds.',
-      artists: 'Unknown makers, Phidias workshop, Roman sculptors, Byzantine mosaicists, Insular scribes, cathedral workshops',
-      image: 'assets/examples/parthenon-sculptures.jpg'
+        "path": "periods/foundations.html",
+        "title": "Foundations",
+        "range": "c. 3100 BCE → 1300 CE",
+        "summary": "Power, devotion, monument, empire, ritual, and memory remain tightly bound together in these ancient and medieval image-worlds.",
+        "artists": "Unknown makers, Phidias workshop, Roman sculptors, Byzantine mosaicists, Insular scribes, cathedral workshops",
+        "image": "assets/examples/parthenon-sculptures.jpg"
     },
     {
-      path: 'periods/parallel-worlds.html',
-      title: 'Parallel worlds',
-      range: 'c. 1000 → 1800, with later echoes',
-      summary: 'A wider art history in which Chinese, Persian, Mughal, Japanese, and South Asian traditions unfold according to their own aims and pressures.',
-      artists: 'Fan Kuan, Sultan Muhammad, Bichitr, Hokusai, Ustad Ahmad Lahori',
-      image: 'assets/examples/travelers-among-mountains-and-streams.jpg'
+        "path": "periods/parallel-worlds.html",
+        "title": "Parallel worlds",
+        "range": "c. 1000 → 1800, with later echoes",
+        "summary": "A wider art history in which Chinese, Persian, Mughal, Japanese, and South Asian traditions unfold according to their own aims and pressures.",
+        "artists": "Fan Kuan, Sultan Muhammad, Bichitr, Hokusai, Ustad Ahmad Lahori",
+        "image": "assets/examples/travelers-among-mountains-and-streams.jpg"
     },
     {
-      path: 'periods/renaissance.html',
-      title: 'Renaissance',
-      range: 'c. 1300 → 1600',
-      summary: 'Space becomes more measured, bodies more deliberate, and the classical past returns as both model and challenge.',
-      artists: 'Giotto, Jan van Eyck, Leonardo da Vinci, Michelangelo, Raphael',
-      image: 'assets/artworks/mona-lisa.jpg'
+        "path": "periods/renaissance.html",
+        "title": "Renaissance",
+        "range": "c. 1300 → 1600",
+        "summary": "Space becomes more measured, bodies more deliberate, and the classical past returns as both model and challenge.",
+        "artists": "Giotto, Jan van Eyck, Leonardo da Vinci, Michelangelo, Raphael",
+        "image": "assets/artworks/mona-lisa.jpg"
     },
     {
-      path: 'periods/baroque-dutch.html',
-      title: 'Baroque and Dutch Golden Age',
-      range: 'c. 1600 → 1700',
-      summary: 'The seventeenth century heightens everything: theatrical light, charged gesture, civic identity, and quiet interiors of startling intensity.',
-      artists: 'Caravaggio, Artemisia Gentileschi, Bernini, Velázquez, Rembrandt, Vermeer',
-      image: 'assets/artworks/calling-saint-matthew.jpg'
+        "path": "periods/baroque-dutch.html",
+        "title": "Baroque and Dutch Golden Age",
+        "range": "c. 1600 → 1700",
+        "summary": "The seventeenth century heightens everything: theatrical light, charged gesture, civic identity, and quiet interiors of startling intensity.",
+        "artists": "Caravaggio, Artemisia Gentileschi, Bernini, Velázquez, Rembrandt, Vermeer",
+        "image": "assets/artworks/calling-saint-matthew.jpg"
     },
     {
-      path: 'periods/eighteenth-nineteenth.html',
-      title: '18th and 19th centuries',
-      range: 'c. 1700 → 1875',
-      summary: 'This period works less as a sequence than as an argument among elegance, virtue, revolution, dream, landscape, and labour.',
-      artists: 'Fragonard, Jacques-Louis David, Fuseli, Delacroix, Constable, Millet, Manet',
-      image: 'assets/examples/liberty-leading-the-people.jpg'
+        "path": "periods/eighteenth-nineteenth.html",
+        "title": "18th and 19th centuries",
+        "range": "c. 1700 → 1875",
+        "summary": "This period works less as a sequence than as an argument among elegance, virtue, revolution, dream, landscape, and labour.",
+        "artists": "Fragonard, Jacques-Louis David, Fuseli, Delacroix, Constable, Millet, Manet",
+        "image": "assets/examples/liberty-leading-the-people.jpg"
     },
     {
-      path: 'periods/impressionism-modern-break.html',
-      title: 'Impressionism to the modern break',
-      range: 'c. 1860 → 1907',
-      summary: 'Painting admits weather, sensation, visible brushwork, and structural instability, opening gradually into the modern break.',
-      artists: 'Monet, Morisot, Manet, Cézanne, Van Gogh, Gauguin',
-      image: 'assets/artworks/starry-night.jpg'
+        "path": "periods/impressionism-modern-break.html",
+        "title": "Impressionism to the modern break",
+        "range": "c. 1860 → 1907",
+        "summary": "Painting admits weather, sensation, visible brushwork, and structural instability, opening gradually into the modern break.",
+        "artists": "Monet, Morisot, Manet, Cézanne, Van Gogh, Gauguin",
+        "image": "assets/artworks/starry-night.jpg"
     },
     {
-      path: 'periods/modernism.html',
-      title: 'Modernism',
-      range: 'c. 1907 → 1970',
-      summary: 'A restless field of fracture, reduction, collage, symbol, gesture, and concept in which the terms of art are renegotiated.',
-      artists: 'Picasso, Kandinsky, Duchamp, Kahlo, Pollock, Warhol',
-      image: 'assets/examples/les-demoiselles-davignon.jpg'
+        "path": "periods/modernism.html",
+        "title": "Modernism",
+        "range": "c. 1907 → 1970",
+        "summary": "A restless field of fracture, reduction, collage, symbol, gesture, and concept in which the terms of art are renegotiated.",
+        "artists": "Picasso, Kandinsky, Duchamp, Kahlo, Pollock, Warhol",
+        "image": "assets/examples/les-demoiselles-davignon.jpg"
     },
     {
-      path: 'periods/contemporary.html',
-      title: 'Contemporary and living questions',
-      range: 'c. 1970 → now',
-      summary: 'A plural present in which media, identity, institutions, memory, and circulation all shape the encounter with the work.',
-      artists: 'Judy Chicago, Cindy Sherman, Louise Bourgeois, and many more living contexts',
-      image: 'assets/examples/untitled-film-stills.jpg'
+        "path": "periods/contemporary.html",
+        "title": "Contemporary and living questions",
+        "range": "c. 1970 → now",
+        "summary": "A plural present in which media, identity, institutions, memory, and circulation all shape the encounter with the work.",
+        "artists": "Judy Chicago, Cindy Sherman, Louise Bourgeois, and many more living contexts",
+        "image": "assets/examples/untitled-film-stills.jpg"
     }
-  ];
+];
+  // generated:chapter-meta:end
   const chapterMetaByPath = new Map(chapterMeta.map((entry, index) => [entry.path, { ...entry, index }]));
 
   function isModifiedClick(event) {

@@ -2,79 +2,49 @@
 from __future__ import annotations
 
 from pathlib import Path
+import json
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
 PERIODS_DIR = ROOT / 'periods'
+DATA_FILE = ROOT / 'data' / 'chapters.json'
+SCRIPT_JS = ROOT / 'script.js'
 
-CHAPTERS = [
-    {
-        'slug': 'foundations',
-        'filename': 'foundations.html',
-        'index': 1,
-        'title': 'Foundations',
-        'range': 'c. 3100 BCE → 1300 CE',
-        'summary': 'Power, devotion, monument, ritual, and memory remain tightly bound together.',
-    },
-    {
-        'slug': 'parallel-worlds',
-        'filename': 'parallel-worlds.html',
-        'index': 2,
-        'title': 'Parallel worlds',
-        'range': 'c. 1000 → 1800, with later echoes',
-        'summary': 'Chinese, Persian, Mughal, Japanese, and South Asian traditions unfold on their own terms.',
-    },
-    {
-        'slug': 'renaissance',
-        'filename': 'renaissance.html',
-        'index': 3,
-        'title': 'Renaissance',
-        'range': 'c. 1300 → 1600',
-        'summary': 'Space, proportion, and classical memory become newly deliberate.',
-    },
-    {
-        'slug': 'baroque-dutch',
-        'filename': 'baroque-dutch.html',
-        'index': 4,
-        'title': 'Baroque and Dutch Golden Age',
-        'range': 'c. 1600 → 1700',
-        'summary': 'Theatrical light, pressure, spectacle, civic identity, and interior intensity.',
-    },
-    {
-        'slug': 'eighteenth-nineteenth',
-        'filename': 'eighteenth-nineteenth.html',
-        'index': 5,
-        'title': '18th and 19th centuries',
-        'range': 'c. 1700 → 1875',
-        'summary': 'Elegance, virtue, revolution, dream, landscape, and labour all compete for the century\'s meaning.',
-    },
-    {
-        'slug': 'impressionism-modern-break',
-        'filename': 'impressionism-modern-break.html',
-        'index': 6,
-        'title': 'Impressionism to the modern break',
-        'range': 'c. 1860 → 1907',
-        'summary': 'Weather, sensation, brushwork, and structural instability open the way toward modernism.',
-    },
-    {
-        'slug': 'modernism',
-        'filename': 'modernism.html',
-        'index': 7,
-        'title': 'Modernism',
-        'range': 'c. 1907 → 1970',
-        'summary': 'Fracture, reduction, collage, symbol, gesture, and concept renegotiate the terms of art.',
-    },
-    {
-        'slug': 'contemporary',
-        'filename': 'contemporary.html',
-        'index': 8,
-        'title': 'Contemporary and living questions',
-        'range': 'c. 1970 → now',
-        'summary': 'Plural, global, and contested: media, identity, institutions, memory, and circulation all shape the encounter.',
-    },
-]
 
+def load_chapters() -> list[dict]:
+    chapters = json.loads(DATA_FILE.read_text())
+    expected_indexes = list(range(1, len(chapters) + 1))
+    indexes = [chapter['index'] for chapter in chapters]
+    if indexes != expected_indexes:
+        raise RuntimeError(f'Chapter indexes must be consecutive starting at 1: {indexes}')
+    slugs = [chapter['slug'] for chapter in chapters]
+    if len(slugs) != len(set(slugs)):
+        raise RuntimeError('Chapter slugs must be unique')
+    return chapters
+
+
+CHAPTERS = load_chapters()
 CHAPTER_BY_SLUG = {chapter['slug']: chapter for chapter in CHAPTERS}
+
+
+def render_page_title(chapter: dict) -> str:
+    return f'  <title>{chapter["title"]} · Art History Field Guide</title>'
+
+
+def render_meta_description(chapter: dict) -> str:
+    return f'  <meta name="description" content="{chapter["meta_description"]}" />'
+
+
+def render_period_header_copy(chapter: dict) -> str:
+    return '\n'.join([
+        '      <!-- generated:period-header-copy:start -->',
+        '      <div class="period-header-copy">',
+        f'        <p class="eyebrow">{chapter["range"]}</p>',
+        f'        <h1>{chapter["title"]}</h1>',
+        f'        <p class="lede">{chapter["lede"]}</p>',
+        '      </div>',
+        '      <!-- generated:period-header-copy:end -->',
+    ])
 
 
 def render_chapter_switcher(current_slug: str) -> str:
@@ -99,7 +69,7 @@ def render_chapter_switcher(current_slug: str) -> str:
             f'<span class="chapter-stop__index">Chapter {chapter["index"]}</span>'
             f'<strong class="chapter-stop__title">{chapter["title"]}</strong>'
             f'<span class="chapter-stop__range">{chapter["range"]}</span>'
-            f'<span class="chapter-stop__summary">{chapter["summary"]}</span>'
+            f'<span class="chapter-stop__summary">{chapter["nav_summary"]}</span>'
             f'<span class="chapter-stop__state">{state}</span>'
             '</a>'
         )
@@ -150,6 +120,26 @@ def render_continue_nav(current_slug: str) -> str:
     ])
 
 
+def render_script_chapter_meta() -> str:
+    payload = [
+        {
+            'path': f'periods/{chapter["filename"]}',
+            'title': chapter['title'],
+            'range': chapter['range'],
+            'summary': chapter['summary'],
+            'artists': chapter['artists'],
+            'image': chapter['image'],
+        }
+        for chapter in CHAPTERS
+    ]
+    json_payload = json.dumps(payload, indent=4, ensure_ascii=False)
+    return '\n'.join([
+        '  // generated:chapter-meta:start',
+        f'  const chapterMeta = {json_payload};',
+        '  // generated:chapter-meta:end',
+    ])
+
+
 def replace_region(text: str, pattern: str, replacement: str, label: str) -> str:
     updated, count = re.subn(pattern, replacement, text, count=1, flags=re.S)
     if count != 1:
@@ -159,13 +149,35 @@ def replace_region(text: str, pattern: str, replacement: str, label: str) -> str
 
 def sync_page(path: Path) -> None:
     slug = path.stem
-    if slug not in CHAPTER_BY_SLUG:
+    chapter = CHAPTER_BY_SLUG.get(slug)
+    if not chapter:
         raise RuntimeError(f'Unexpected chapter page: {path.name}')
 
     text = path.read_text()
+    title = render_page_title(chapter)
+    meta_description = render_meta_description(chapter)
+    header_copy = render_period_header_copy(chapter)
     switcher = render_chapter_switcher(slug)
     next_grid = render_continue_nav(slug)
 
+    text = replace_region(
+        text,
+        r'\n\s*<title>.*? · Art History Field Guide</title>',
+        '\n' + title,
+        'page title',
+    )
+    text = replace_region(
+        text,
+        r'\n\s*<meta name="description" content=".*?" />',
+        '\n' + meta_description,
+        'meta description',
+    )
+    text = replace_region(
+        text,
+        r'\n\s*<!-- generated:period-header-copy:start -->.*?<!-- generated:period-header-copy:end -->\n\s*<div class="period-header-preview">|\n\s*<div class="period-header-copy">.*?\n\s*</div>\n\s*<div class="period-header-preview">',
+        '\n' + header_copy + '\n        <div class="period-header-preview">',
+        'period header copy',
+    )
     text = replace_region(
         text,
         r'\n\s*<!-- generated:chapter-switcher:start -->.*?<!-- generated:chapter-switcher:end -->\n\s*</header>|\n\s*<div class="chapter-switcher">.*?\n\s*</header>',
@@ -182,7 +194,21 @@ def sync_page(path: Path) -> None:
     path.write_text(text)
 
 
+def sync_script_js() -> None:
+    text = SCRIPT_JS.read_text()
+    chapter_meta_block = render_script_chapter_meta()
+    text = replace_region(
+        text,
+        r'\n\s*// generated:chapter-meta:start.*?// generated:chapter-meta:end|\n\s*const chapterMeta = \[.*?\n\s*\];',
+        '\n' + chapter_meta_block,
+        'script chapter meta',
+    )
+    SCRIPT_JS.write_text(text)
+
+
 if __name__ == '__main__':
     for html_path in sorted(PERIODS_DIR.glob('*.html')):
         sync_page(html_path)
-        print(f'synced {html_path.name}')
+        print(f'synced page {html_path.name}')
+    sync_script_js()
+    print(f'synced script {SCRIPT_JS.name}')
