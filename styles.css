@@ -407,7 +407,39 @@ main { display:grid; gap:24px; }
   margin-top: auto;
 }
 .notice-strip, .tag-row, .period-chip-row { display:flex; flex-wrap:wrap; gap:10px; }
-.notice-strip span, .tag-row span, .period-chip { border:1px solid rgba(18,19,23,0.10); border-radius:999px; background:rgba(255,255,255,.72); padding:8px 12px; color:var(--ink-soft); font-size:.84rem; }
+.chapter-switcher {
+  margin-top: 20px;
+  padding-top: 18px;
+  border-top: 1px solid rgba(255,255,255,0.12);
+}
+.chapter-switcher .period-chip-row {
+  gap: 12px;
+}
+.notice-strip span, .tag-row span, .period-chip {
+  border:1px solid rgba(18,19,23,0.10);
+  border-radius:999px;
+  background:rgba(255,255,255,.72);
+  padding:8px 12px;
+  color:var(--ink-soft);
+  font-size:.84rem;
+}
+.period-chip {
+  text-decoration: none;
+  transition: background .2s ease, border-color .2s ease, color .2s ease, transform .2s ease;
+}
+.period-chip:hover,
+.period-chip:focus-visible {
+  background: rgba(255,255,255,0.92);
+  border-color: rgba(18,19,23,0.18);
+  color: var(--ink);
+  transform: translateY(-1px);
+}
+.period-chip.is-active,
+.period-chip[aria-current="page"] {
+  background: rgba(201,167,106,0.18);
+  border-color: rgba(201,167,106,0.45);
+  color: #fff7e8;
+}
 .work-card { overflow:hidden; }
 .work-image-link img { width:100%; aspect-ratio:1/.88; object-fit:cover; background:#e9dcc8; }
 .work-copy {
@@ -1304,7 +1336,7 @@ body.modal-open {
     width: 100%;
   }
   .period-chip-row {
-    display: none;
+    display: flex;
   }
   .guide-modal__summary,
   .guide-modal__rail-intro {

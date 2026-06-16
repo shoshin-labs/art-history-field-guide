@@ -349,7 +349,7 @@
           <p class="timeline-explorer__artists"><strong>Artists:</strong> ${entry.artists}</p>
           <div class="timeline-explorer__actions">
             <button class="timeline-explorer__nav" type="button" data-direction="prev" ${prevDisabled}>← Prev</button>
-            <a class="button primary" data-modal="true" href="${chapterUrl}">Open chapter</a>
+            <a class="button primary" href="${chapterUrl}">Open chapter</a>
             <button class="timeline-explorer__nav" type="button" data-direction="next" ${nextDisabled}>Next →</button>
           </div>
         </div>
