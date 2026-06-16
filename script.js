@@ -129,6 +129,94 @@
     }
   }
 
+  function initArtworkLightbox() {
+    const zoomableWorks = document.querySelector('[data-artwork-zoom="true"]');
+    if (!zoomableWorks) return;
+
+    const lightbox = document.createElement('div');
+    lightbox.className = 'artwork-lightbox';
+    lightbox.setAttribute('aria-hidden', 'true');
+    lightbox.innerHTML = `
+      <div class="artwork-lightbox__backdrop" data-artwork-lightbox-close="true"></div>
+      <div class="artwork-lightbox__dialog" role="dialog" aria-modal="true" aria-labelledby="artwork-lightbox-title">
+        <div class="artwork-lightbox__media">
+          <img class="artwork-lightbox__image" alt="" />
+        </div>
+        <div class="artwork-lightbox__copy">
+          <span class="artwork-lightbox__eyebrow">Selected work</span>
+          <h3 id="artwork-lightbox-title"></h3>
+          <p class="artwork-lightbox__meta"></p>
+          <p class="artwork-lightbox__context"></p>
+          <p class="artwork-lightbox__look"></p>
+          <div class="artwork-lightbox__actions">
+            <a class="artwork-lightbox__link" href="#" target="_blank" rel="noreferrer">Open context ↗</a>
+            <button class="artwork-lightbox__close" type="button" data-artwork-lightbox-close="true">Close</button>
+          </div>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(lightbox);
+
+    const image = lightbox.querySelector('.artwork-lightbox__image');
+    const title = lightbox.querySelector('#artwork-lightbox-title');
+    const meta = lightbox.querySelector('.artwork-lightbox__meta');
+    const context = lightbox.querySelector('.artwork-lightbox__context');
+    const look = lightbox.querySelector('.artwork-lightbox__look');
+    const link = lightbox.querySelector('.artwork-lightbox__link');
+    let isOpen = false;
+    let lastFocused = null;
+
+    function setOpen(nextOpen) {
+      isOpen = nextOpen;
+      lightbox.classList.toggle('is-open', nextOpen);
+      lightbox.setAttribute('aria-hidden', String(!nextOpen));
+      document.body.classList.toggle('modal-open', nextOpen);
+    }
+
+    function closeLightbox() {
+      if (!isOpen) return;
+      setOpen(false);
+      if (lastFocused) {
+        window.setTimeout(() => lastFocused.focus(), 30);
+      }
+    }
+
+    document.addEventListener('click', (event) => {
+      const closeTrigger = event.target.closest('[data-artwork-lightbox-close="true"]');
+      if (closeTrigger && lightbox.contains(closeTrigger)) {
+        event.preventDefault();
+        closeLightbox();
+        return;
+      }
+
+      const zoomTrigger = event.target.closest('[data-artwork-zoom="true"]');
+      if (!zoomTrigger) return;
+      event.preventDefault();
+      lastFocused = zoomTrigger;
+      image.src = new URL(zoomTrigger.dataset.artworkImage || '', window.location.href).toString();
+      image.alt = zoomTrigger.dataset.artworkAlt || zoomTrigger.dataset.artworkTitle || '';
+      title.textContent = zoomTrigger.dataset.artworkTitle || '';
+      meta.textContent = zoomTrigger.dataset.artworkMeta || '';
+      context.textContent = zoomTrigger.dataset.artworkContext || '';
+      const lookText = zoomTrigger.dataset.artworkLook || '';
+      look.textContent = lookText ? `Look for: ${lookText}` : '';
+      link.href = zoomTrigger.dataset.artworkLink || '#';
+      link.textContent = zoomTrigger.dataset.artworkLinkLabel || 'Open context ↗';
+      setOpen(true);
+      window.setTimeout(() => lightbox.querySelector('.artwork-lightbox__close')?.focus(), 30);
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!isOpen) return;
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        closeLightbox();
+      }
+    });
+  }
+
+  initArtworkLightbox();
+
   if (inIframe) {
     document.addEventListener('click', (event) => {
       const link = event.target.closest('a[data-modal="true"]');
