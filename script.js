@@ -143,7 +143,7 @@
     <div class="guide-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="guide-modal-title">
       <div class="guide-modal__header">
         <div class="guide-modal__heading">
-          <span class="guide-modal__eyebrow">Immersive chapter view</span>
+          <span class="guide-modal__eyebrow">Chapter view</span>
           <h2 id="guide-modal-title">Loading chapter…</h2>
           <p class="guide-modal__summary" id="guide-modal-summary">Loading your place in the art-history map…</p>
         </div>
@@ -152,7 +152,7 @@
             <button class="guide-modal__nav guide-modal__nav--prev" type="button" aria-label="Open previous chapter">← Prev</button>
             <button class="guide-modal__nav guide-modal__nav--next" type="button" aria-label="Open next chapter">Next →</button>
           </div>
-          <a class="guide-modal__open-page" href="#" target="_blank" rel="noreferrer">Open page ↗</a>
+          <a class="guide-modal__open-page" href="#" target="_blank" rel="noreferrer">Open chapter ↗</a>
           <button class="guide-modal__close" type="button" aria-label="Close detail view">Close</button>
         </div>
       </div>
@@ -172,8 +172,8 @@
       </div>
       <div class="guide-modal__rail-shell">
         <div class="guide-modal__rail-intro">
-          <span>Jump anywhere</span>
-          <p>Use the filmstrip to compare periods quickly without losing your place.</p>
+          <span>Browse chapters</span>
+          <p>Use the filmstrip to move between chapters without losing your place.</p>
         </div>
         <div class="guide-modal__rail" role="tablist" aria-label="Art history chapters"></div>
       </div>
