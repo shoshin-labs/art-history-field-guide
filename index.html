@@ -8,7 +8,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Cormorant+Garamond:wght@500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=immersive3" />
+  <link rel="stylesheet" href="styles.css?v=simple6" />
 </head>
 <body>
   <div class="site-shell">
@@ -20,25 +20,13 @@
           <a data-no-modal="true" href="#periods">Chapters</a>
         </div>
       </nav>
-      <div class="hero-layout home-hero-layout">
-        <div class="hero-copy">
-          <p class="eyebrow">An immersive field guide</p>
-          <h1>Enter the long conversation of art history.</h1>
-          <p class="lede">This guide is meant to feel like a sequence of rooms: move through the timeline, open a chapter, and stay with the works long enough for their visual logic to start revealing itself.</p>
-          <div class="hero-actions">
-            <a class="button primary" data-no-modal="true" href="#timeline">Begin with the timeline</a>
-            <a class="button secondary" data-modal="true" href="periods/baroque-dutch.html">Enter through Caravaggio / Rembrandt</a>
-          </div>
-          <div class="hero-highlights hero-highlights--compact">
-            <div class="highlight-card"><span class="highlight-kicker">What this is</span><strong>A curated route through a huge field.</strong><p>The guide narrows the field on purpose, so each chapter can feel inhabited rather than reduced to bullet points.</p></div>
-            <div class="highlight-card"><span class="highlight-kicker">How to use it</span><strong>Let the images lead, then let the notes sharpen your eye.</strong><p>The writing is there to deepen attention, not to crowd out the works themselves.</p></div>
-          </div>
-        </div>
-        <aside class="hero-preview-board">
-          <div class="hero-preview-intro">
-            <span class="hero-visual-kicker">Threshold images</span>
-            <p>A first wall of anchor works from across the guide: different centuries, different pictorial worlds, one invitation to look more closely.</p>
-          </div>
+      <div class="hero-layout home-hero-layout home-hero-layout--minimal">
+        <div class="hero-copy hero-copy--minimal">
+          <p class="eyebrow">Art history field guide</p>
+          <h1>Art history, arranged as eight rooms.</h1>
+          <p class="lede">From ancient monuments to contemporary installations.</p>
+</div>
+        <aside class="hero-preview-board hero-preview-board--minimal">
           <div class="hero-preview-grid mosaic-six">
             <img src="assets/artworks/mona-lisa.jpg" alt="Mona Lisa" loading="eager" />
             <img src="assets/artworks/calling-saint-matthew.jpg" alt="The Calling of Saint Matthew" loading="eager" />
@@ -52,64 +40,62 @@
     </header>
 
     <main>
-      <section class="panel timeline-explorer-panel" id="timeline">
-        <div class="section-heading timeline-heading timeline-heading--stacked">
-          <div>
-            <p class="eyebrow">Interactive timeline</p>
-            <h2>Move through the eight chapters</h2>
-            <p>Select a chapter on the line to change the feature panel. On mobile, swipe the strip; on desktop, move back and forth to feel where one visual world gives way to another.</p>
-          </div>
-        </div>
-        <div class="timeline-explorer" data-timeline-explorer>
-          <noscript>
-            <p class="timeline-explorer__fallback">JavaScript is off, so the interactive timeline cannot load. Use the chapter grid below instead.</p>
-          </noscript>
-        </div>
-      </section>
-
       <section class="panel chapter-gallery-panel" id="periods">
-        <div class="section-heading">
+        <div class="section-heading section-heading--minimal">
           <p class="eyebrow">Eight chapters</p>
-          <h2>The galleries of the guide</h2>
-          <p>Each chapter is a doorway: one large reference image, one orientation line, and a full page of works, patterns, and questions to dwell with.</p>
+          <h2>Chapters</h2>
         </div>
         <div class="chapter-gallery-grid">
           <a class="chapter-feature-card" data-modal="true" href="periods/foundations.html">
             <div class="chapter-feature-card__image-wrap"><img src="assets/examples/parthenon-sculptures.jpg" alt="Parthenon sculptures" loading="eager" /></div>
-            <div class="chapter-feature-card__copy"><span class="period-range">c. 3100 BCE → 1300 CE</span><h3>Foundations</h3><p>Ancient, classical, Byzantine, and medieval image traditions.</p><strong>Power, religion, ritual, and monument</strong></div>
+            <div class="chapter-feature-card__copy"><span class="period-range">c. 3100 BCE → 1300 CE</span><h3>Foundations</h3><strong>Power, religion, ritual, and monument</strong></div>
           </a>
           <a class="chapter-feature-card" data-modal="true" href="periods/parallel-worlds.html">
             <div class="chapter-feature-card__image-wrap"><img src="assets/examples/travelers-among-mountains-and-streams.jpg" alt="Travelers Among Mountains and Streams" loading="eager" /></div>
-            <div class="chapter-feature-card__copy"><span class="period-range">c. 1000 → 1800, with later echoes</span><h3>Parallel worlds</h3><p>Chinese, Persian, Mughal, Japanese, and South Asian traditions on their own terms.</p><strong>Multiple art histories at once</strong></div>
+            <div class="chapter-feature-card__copy"><span class="period-range">c. 1000 → 1800, with later echoes</span><h3>Parallel worlds</h3><strong>Multiple art histories at once</strong></div>
           </a>
           <a class="chapter-feature-card" data-modal="true" href="periods/renaissance.html">
             <div class="chapter-feature-card__image-wrap"><img src="assets/artworks/mona-lisa.jpg" alt="Mona Lisa" loading="eager" /></div>
-            <div class="chapter-feature-card__copy"><span class="period-range">c. 1300 → 1600</span><h3>Renaissance</h3><p>Perspective, anatomy, observation, and revived classicism in Italy and northern Europe.</p><strong>Giotto → Leonardo → Michelangelo → Raphael</strong></div>
+            <div class="chapter-feature-card__copy"><span class="period-range">c. 1300 → 1600</span><h3>Renaissance</h3><strong>Giotto → Leonardo → Michelangelo → Raphael</strong></div>
           </a>
           <a class="chapter-feature-card" data-modal="true" href="periods/baroque-dutch.html">
             <div class="chapter-feature-card__image-wrap"><img src="assets/artworks/calling-saint-matthew.jpg" alt="The Calling of Saint Matthew" loading="eager" /></div>
-            <div class="chapter-feature-card__copy"><span class="period-range">c. 1600 → 1700</span><h3>Baroque and Dutch Golden Age</h3><p>Drama, spectacle, intimacy, and civic life in overlapping but different modes.</p><strong>Caravaggio, Artemisia, Bernini, Rembrandt, Vermeer</strong></div>
+            <div class="chapter-feature-card__copy"><span class="period-range">c. 1600 → 1700</span><h3>Baroque and Dutch Golden Age</h3><strong>Caravaggio, Artemisia, Bernini, Rembrandt, Vermeer</strong></div>
           </a>
           <a class="chapter-feature-card" data-modal="true" href="periods/eighteenth-nineteenth.html">
             <div class="chapter-feature-card__image-wrap"><img src="assets/examples/liberty-leading-the-people.jpg" alt="Liberty Leading the People" loading="eager" /></div>
-            <div class="chapter-feature-card__copy"><span class="period-range">c. 1700 → 1875</span><h3>18th and 19th centuries</h3><p>Rococo, Neoclassicism, Romanticism, and Realism overlap and argue.</p><strong>Fragonard, David, Delacroix, Constable, Millet, Manet</strong></div>
+            <div class="chapter-feature-card__copy"><span class="period-range">c. 1700 → 1875</span><h3>18th and 19th centuries</h3><strong>Fragonard, David, Delacroix, Constable, Millet, Manet</strong></div>
           </a>
           <a class="chapter-feature-card" data-modal="true" href="periods/impressionism-modern-break.html">
             <div class="chapter-feature-card__image-wrap"><img src="assets/artworks/starry-night.jpg" alt="The Starry Night" loading="eager" /></div>
-            <div class="chapter-feature-card__copy"><span class="period-range">c. 1860 → 1907</span><h3>Impressionism to the modern break</h3><p>Surface, perception, modern life, and structure start to pull painting apart.</p><strong>Monet, Morisot, Manet, Cézanne, Van Gogh, Gauguin</strong></div>
+            <div class="chapter-feature-card__copy"><span class="period-range">c. 1860 → 1907</span><h3>Impressionism to the modern break</h3><strong>Monet, Morisot, Manet, Cézanne, Van Gogh, Gauguin</strong></div>
           </a>
           <a class="chapter-feature-card" data-modal="true" href="periods/modernism.html">
             <div class="chapter-feature-card__image-wrap"><img src="assets/examples/les-demoiselles-davignon.jpg" alt="Les Demoiselles d’Avignon" loading="eager" /></div>
-            <div class="chapter-feature-card__copy"><span class="period-range">c. 1907 → 1970</span><h3>Modernism</h3><p>Fragmentation, abstraction, experiment, and the widening definition of art.</p><strong>Picasso, Kandinsky, Duchamp, Kahlo, Pollock, Warhol</strong></div>
+            <div class="chapter-feature-card__copy"><span class="period-range">c. 1907 → 1970</span><h3>Modernism</h3><strong>Picasso, Kandinsky, Duchamp, Kahlo, Pollock, Warhol</strong></div>
           </a>
           <a class="chapter-feature-card" data-modal="true" href="periods/contemporary.html">
             <div class="chapter-feature-card__image-wrap"><img src="assets/examples/untitled-film-stills.jpg" alt="Untitled Film Stills" loading="eager" /></div>
-            <div class="chapter-feature-card__copy"><span class="period-range">c. 1970 → now</span><h3>Contemporary and living questions</h3><p>Installation, photography, identity, media, institutions, and global circulation.</p><strong>Chicago, Sherman, Bourgeois, and beyond</strong></div>
+            <div class="chapter-feature-card__copy"><span class="period-range">c. 1970 → now</span><h3>Contemporary and living questions</h3><strong>Chicago, Sherman, Bourgeois, and beyond</strong></div>
           </a>
+        </div>
+      </section>
+
+      <section class="panel timeline-explorer-panel" id="timeline">
+        <div class="section-heading section-heading--minimal timeline-heading timeline-heading--stacked">
+          <div>
+            <p class="eyebrow">Timeline</p>
+            <h2>Timeline</h2>
+          </div>
+        </div>
+        <div class="timeline-explorer" data-timeline-explorer>
+          <noscript>
+            <p class="timeline-explorer__fallback">Use the chapter grid above.</p>
+          </noscript>
         </div>
       </section>
     </main>
   </div>
-  <script src="script.js?v=immersive3" defer></script>
+  <script src="script.js?v=simple6" defer></script>
 </body>
 </html>

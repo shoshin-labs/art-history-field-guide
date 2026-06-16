@@ -949,3 +949,140 @@ body.modal-open {
     flex: 1 1 0;
   }
 }
+
+
+.home-hero-layout--minimal {
+  align-items: center;
+}
+.hero-copy--minimal {
+  padding-top: 24px;
+}
+.hero-copy--minimal .lede {
+  max-width: 28ch;
+  font-size: 1.02rem;
+}
+.hero-actions--minimal {
+  margin: 22px 0 0;
+}
+.hero-preview-board--minimal {
+  align-self: stretch;
+}
+.section-heading--minimal {
+  margin-bottom: 16px;
+}
+.section-heading--minimal p:last-child {
+  display: none;
+}
+.chapter-gallery-panel {
+  order: 1;
+}
+.timeline-explorer-panel {
+  order: 2;
+}
+.chapter-feature-card__copy {
+  gap: 8px;
+}
+.chapter-feature-card__copy strong {
+  font-weight: 600;
+  color: rgba(247,243,236,0.9);
+}
+.timeline-explorer__artists strong {
+  color: #ffffff;
+}
+.guide-modal__summary:empty,
+.timeline-explorer__summary:empty,
+.timeline-explorer__artists:empty {
+  display: none;
+}
+.period-header-copy .lede {
+  max-width: 34ch;
+}
+.question-card {
+  display: none;
+}
+@media (max-width: 680px) {
+  .hero {
+    padding-top: 16px;
+  }
+  .brand {
+    font-size: 1.4rem;
+  }
+  .topbar {
+    gap: 12px;
+    padding: 8px 10px;
+  }
+  .topbar-links {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .topbar-links a {
+    justify-content: center;
+  }
+  .home-hero-layout--minimal {
+    gap: 18px;
+  }
+  .hero-copy--minimal {
+    padding-top: 10px;
+  }
+  .hero-copy--minimal .lede {
+    font-size: .98rem;
+  }
+  .hero-actions--minimal {
+    margin-top: 16px;
+  }
+  .hero-actions--minimal .button {
+    flex: 1 1 0;
+  }
+  .hero-preview-board--minimal {
+    order: -1;
+  }
+  .mosaic-six img:nth-child(n+5) {
+    display: block;
+  }
+  .mosaic-six {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .mosaic-six img {
+    aspect-ratio: 1 / 1.08;
+    border-radius: 16px;
+  }
+  .chapter-feature-card {
+    grid-template-columns: 1fr;
+    border-radius: 24px;
+  }
+  .chapter-feature-card__image-wrap {
+    min-height: 220px;
+  }
+  .chapter-feature-card__copy {
+    padding: 16px 16px 18px;
+  }
+  .chapter-feature-card__copy p {
+    display: none;
+  }
+  .chapter-feature-card__copy strong {
+    margin-top: 2px;
+    font-size: .96rem;
+    line-height: 1.45;
+  }
+  .timeline-explorer__summary,
+  .timeline-explorer__artists {
+    line-height: 1.55;
+  }
+  .timeline-explorer__nav {
+    display: none;
+  }
+  .timeline-explorer__actions .button {
+    width: 100%;
+  }
+  .period-chip-row {
+    display: none;
+  }
+  .guide-modal__summary,
+  .guide-modal__rail-intro {
+    display: none;
+  }
+  .page-panel .section-heading p:last-child {
+    display: none;
+  }
+}

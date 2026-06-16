@@ -151,9 +151,9 @@
     <div class="guide-modal__dialog" role="dialog" aria-modal="true" aria-labelledby="guide-modal-title">
       <div class="guide-modal__header">
         <div class="guide-modal__heading">
-          <span class="guide-modal__eyebrow">Gallery view</span>
+          <span class="guide-modal__eyebrow">Chapter</span>
           <h2 id="guide-modal-title">Loading chapter…</h2>
-          <p class="guide-modal__summary" id="guide-modal-summary">Opening your place in the wider sequence…</p>
+          <p class="guide-modal__summary" id="guide-modal-summary"></p>
         </div>
         <div class="guide-modal__actions">
           <div class="guide-modal__jump-controls" aria-label="Chapter navigation">
@@ -181,7 +181,7 @@
       <div class="guide-modal__rail-shell">
         <div class="guide-modal__rail-intro">
           <span>Move between chapters</span>
-          <p>Use the filmstrip to move across the sequence without stepping out of the experience.</p>
+          <p>Browse the chapters.</p>
         </div>
         <div class="guide-modal__rail" role="tablist" aria-label="Art history chapters"></div>
       </div>
@@ -258,10 +258,10 @@
           <p class="timeline-explorer__range">${entry.range}</p>
           <h3>${entry.title}</h3>
           <p class="timeline-explorer__summary">${entry.summary}</p>
-          <p class="timeline-explorer__artists"><strong>Names to carry with you:</strong> ${entry.artists}</p>
+          <p class="timeline-explorer__artists"><strong>Artists:</strong> ${entry.artists}</p>
           <div class="timeline-explorer__actions">
             <button class="timeline-explorer__nav" type="button" data-direction="prev" ${prevDisabled}>← Prev</button>
-            <a class="button primary" data-modal="true" href="${chapterUrl}">Step into this chapter</a>
+            <a class="button primary" data-modal="true" href="${chapterUrl}">Open chapter</a>
             <button class="timeline-explorer__nav" type="button" data-direction="next" ${nextDisabled}>Next →</button>
           </div>
         </div>
@@ -304,7 +304,7 @@
   function updateModalChrome(url) {
     const entry = getChapterEntry(url);
     const fallbackTitle = 'Art History chapter';
-    const fallbackSummary = 'Open a chapter in a focused overlay and move through the sequence without leaving the broader map behind.';
+    const fallbackSummary = '';
 
     if (!entry) {
       modalTitle.textContent = fallbackTitle;
@@ -327,7 +327,7 @@
     modalSummary.textContent = entry.summary;
     modalRange.textContent = entry.range;
     modalCounter.textContent = `Chapter ${entry.index + 1} of ${chapterMeta.length}`;
-    modalKicker.textContent = 'Immersive gallery mode';
+    modalKicker.textContent = 'Chapter';
     modalSpotlightImage.src = new URL(entry.image, guideBaseUrl).toString();
     modalSpotlightImage.alt = entry.title;
 
@@ -369,8 +369,8 @@
 
     currentUrl = absolute;
     lastFocusedElement = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    modalTitle.textContent = 'Loading chapter…';
-    modalSummary.textContent = 'Opening a richer view so you can move through the chapters without breaking the spell…';
+    modalTitle.textContent = 'Loading…';
+    modalSummary.textContent = '';
     modalOpenPage.href = absolute;
     updateModalChrome(absolute);
 
