@@ -334,10 +334,13 @@ h3 { font-size:1.85rem; margin-bottom:10px; }
 }
 .chapter-feature-card__image-wrap {
   min-height: 250px;
+  height: clamp(250px, 28vw, 420px);
+  max-height: 420px;
 }
 .chapter-feature-card__copy {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: 10px;
   padding: 24px;
   color: #f7f3ec;
